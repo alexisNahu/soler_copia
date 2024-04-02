@@ -1,0 +1,25 @@
+---
+import { Image } from "astro:assets";
+
+const { image, title, title2 } = Astro.props;
+---
+
+<section class="relative h-[300px] sm:h-[400px] lg:h-[603px]">
+  <Image
+    src={image}
+    width={1920}
+    height={603}
+    alt="Banner de nuestros servicios"
+    loading={"eager"}
+    class="absolute inset-0 mx-auto h-[300px] sm:h-[400px] lg:h-[603px] object-cover"
+  />
+  <div
+    class="pt-24 sm:pt-32 lg:pt-48 h-full relative w-11/12 max-w-screen-2xl mx-auto"
+  >
+    <div
+      class={`font-semibold overflow-x-clip text-3xl sm:text-4xl lg:text-5xl relative text-secundario before:content-['${title2}'] before:text-[#E0E5EB] before:opacity-50 before:absolute before:-top-4 lg:before:-top-14 before:-z-0 before:text-4xl sm:before:text-7xl lg:before:text-9xl before:font-bold`}
+    >
+      <h1 class="relative">{title}</h1>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,45 @@
+---
+import { Image } from "astro:assets";
+---
+
+<header>
+  <nav
+    class="flex flex-row container mx-auto justify-between text-secundario px-4 pt-2"
+  >
+    <a href="/">
+      <Image
+        src={"/solerLogo.webp"}
+        width={300}
+        height={86.69}
+        alt="Logo de soler E.A.S."
+        class="flex-1 h-auto"
+        loading={"eager"}
+      />
+    </a>
+
+    <ul
+      data-navBar="navFlex"
+      class="hidden lg:flex flex-row justify-evenly items-center gap-8 font-semibold text-lg transition-colors"
+    >
+      <li><a href="/">INICIO</a></li>
+      <li><a href="/about" data-astro-prefetch>QUIÉNES SOMOS</a></li>
+      <li><a href="/servicios" data-astro-prefetch>SERVICIOS</a></li>
+      <li><a href="/profesionales" data-astro-prefetch>PROFESIONALES</a></li>
+      <li><a href="/contacto" data-astro-prefetch>CONTACTO</a></li>
+    </ul>
+  </nav>
+</header>
+
+<script type="module" is:inline>
+  const path = window.location.pathname;
+
+  const navLinks = document.querySelectorAll("nav ul li a");
+
+  navLinks.forEach((link) => {
+    if (link.getAttribute("href") === path) {
+      link.classList.add("text-primarioOscuro");
+    } else {
+      link.classList.remove("text-primarioOscuro");
+    }
+  });
+</script>

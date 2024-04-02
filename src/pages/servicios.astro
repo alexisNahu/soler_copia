@@ -1,0 +1,117 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../layouts/Layout.astro";
+import HeaderBanner from "../components/headerBanner.astro";
+
+const servicios = [
+  {
+    title: "Consultoría Especializada",
+    slug: "",
+    text: "Ofrecemos asesoramiento estratégico y personalizado para empresas del sector químico, industrial y de producción, diseñado para impulsar su crecimiento y éxito en el mercado.",
+  },
+  {
+    title: "Gestión Integral de Regulaciones Sanitarias",
+    slug: "",
+    text: "Nos encargamos de la regencia y dirección técnica ante las principales entidades sanitarias locales, incluyendo DINAVISA, SENACSA, SENAVE, SENAD e INAN, para garantizar el cumplimiento normativo y la operación segura de tu empresa. Nos ocupamos de todas las gestiones, trámites y del respaldo documental de las empresas ante estas instituciones.",
+  },
+  {
+    title: "Asesoramiento Regulatorio",
+    slug: "",
+    text: "Brindamos asesoría especializada en la fabricación, importación, distribución y compra de una amplia gama de productos, incluyendo domisanitarios, cosméticos, farmacéuticos, alimentarios, veterinarios, dispositivos médicos y otros relacionados al sector químico e industrial.",
+  },
+  {
+    title: "Implementación de Buenas Prácticas y Control de Calidad",
+    slug: "",
+    text: "Ofrecemos servicios de implementación de buenas prácticas, control y auditoría de establecimientos y laboratorios de producción, asegurando el cumplimiento de las normativas de calidad requeridas para obtener certificaciones tanto a nivel nacional como internacional. Desde la evaluación inicial hasta la implementación efectiva y el seguimiento continuo, nuestro equipo de expertos te guiará en cada etapa del proceso para garantizar el cumplimiento de los estándares más exigentes y la excelencia en tus operaciones.",
+  },
+  {
+    title: "Asistencia Técnica, Legal y Financiera",
+    slug: "",
+    text: "Apoyamos en la puesta en marcha de proyectos y plantas industriales, proporcionando orientación experta en aspectos técnicos, legales y financieros para asegurar el éxito de tu inversión.",
+  },
+];
+---
+
+<Layout title="Servicios">
+  <main class="relative">
+    <HeaderBanner
+      image="/servicios/servicioBanner.webp"
+      title="Nuestros Servicios"
+      title2="SERVICIOS"
+    />
+    <section class="max-w-screen-2xl mx-auto w-11/12 py-24">
+      <div class="grid gap-8 lg:gap-12 grid-cols-2 lg:grid-cols-3">
+        {
+          servicios.map((value, idx) => {
+            return (
+              <div data-key={`Servicio: ${idx}`}>
+                <h3 class="font-bold text-3xl text-primarioOscuro mb-6">
+                  {value.title}
+                </h3>
+                <p class="text-secundario text-lg font-medium mb-6">
+                  {value.text}
+                </p>
+                <button class="border-[1.5px] border-primarioOscuro rounded-lg rounded-tr-none px-5 py-3 text-primarioOscuro font-semibold transition-colors hover:bg-secundario/10">
+                  ME INTERESA
+                </button>
+              </div>
+            );
+          })
+        }
+      </div>
+    </section>
+    <section class="relative text-white -mt-72 h-[1300px]">
+      <Image
+        src={"/servicios/servicioBg.webp"}
+        width={1920}
+        height={1390}
+        alt="Servicios background"
+        class="absolute inset-0 mx-auto object-cover h-full -z-10 [mask-image:_linear-gradient(transparent,_black_10%);]"
+      />
+      <div class="max-w-6xl mx-auto w-11/12 pt-80">
+        <div class="mb-12">
+          <h1 class="font-bold text-2xl sm:text-3xl lg:text-4xl text-center">
+            RUBROS Y ENTES SANITARIOS GUBERNAMENTALES ANTE LOS CUALES BRINDAMOS
+            SERVICIOS
+          </h1>
+        </div>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div
+            class="py-6 sm:py-10 lg:py-16 px-4 sm:px-12 lg:px-20 bg-[#D4CDB3] bg-opacity-70"
+          >
+            <h2 class="font-bold text-2xl lg:text-3xl mb-3">Rubros</h2>
+            <ul
+              class="font-semibold lg:text-lg flex flex-col gap-y-1 sm:gap-y-3"
+            >
+              <li>Productos Domisanitarios.</li>
+              <li>Productos de Higiene Personal, Cosméticos y Perfumes.</li>
+              <li>Especialidades Farmacéuticas.</li>
+              <li>Suplementos Dietarios.</li>
+              <li>Alimentos y Manufactura.</li>
+              <li>Dispositivos Médicos.</li>
+              <li>Productos Veterinarios.</li>
+              <li>Agroquímicos Fitosanitarios.</li>
+              <li>Productos Químicos Controlados.</li>
+            </ul>
+          </div>
+          <div
+            class="py-6 sm:py-10 lg:pt-16 lg:mb-32 px-4 sm:px-12 lg:px-20 bg-[#D4CDB3] bg-opacity-70"
+          >
+            <h2 class="font-bold text-2xl lg:text-3xl mb-3">
+              Entes Regulatorios
+            </h2>
+            <ul class="font-bold lg:text-lg flex flex-col">
+              <li>DINAVISA</li>
+              <li>INAN</li>
+              <li>SENAVE</li>
+              <li>SENACSA</li>
+              <li>SENAD</li>
+              <li>MADES</li>
+              <li>DNA</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>

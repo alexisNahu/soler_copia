@@ -1,0 +1,101 @@
+---
+import { Image } from "astro:assets";
+---
+
+<footer class="bg-secundario text-white">
+  <div
+    class="container flex flex-col md:flex-row py-12 gap-12 px-8 mx-auto max-w-screen-2xl w-11/12 lg:w-4/5"
+  >
+    <Image
+      src={"/footer/solerFooter.webp"}
+      width={240}
+      height={254}
+      alt="Footer Logo"
+      class="mx-auto"
+    />
+    <div class="flex flex-col divide-y-2 divide-white font-bold">
+      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 pb-12">
+        <div class="flex gap-x-2 justify-start self-start">
+          <Image
+            src={"/footer/location.svg"}
+            width={15}
+            height={22}
+            alt="location"
+            class="self-start"
+          />
+          <p>
+            Avda. Cecilio Báez c/ San Gerardo San Lorenzo, Central - Paraguay
+          </p>
+        </div>
+        <div class="flex flex-col lg:items-center">
+          <div class="flex gap-x-1 items-center">
+            <Image
+              src={"/footer/phone.svg"}
+              width={22}
+              height={22}
+              alt="location"
+            />
+            <p>+595 981 117 986</p>
+          </div>
+          <div class="flex gap-x-1 lg:items-center">
+            <Image
+              src={"/footer/phone.svg"}
+              width={22}
+              height={22}
+              alt="location"
+            />
+            <p>+595 973 720 153</p>
+          </div>
+          <div class="flex gap-x-1 lg:items-center">
+            <Image
+              src={"/footer/phone.svg"}
+              width={22}
+              height={22}
+              alt="location"
+            />
+            <p>+595 982 731 549</p>
+          </div>
+        </div>
+        <div class="flex flex-col gap-y-2 max-lg:self-start lg:items-center">
+          <div class="flex lg:items-center gap-x-2">
+            <Image
+              src={"/footer/msg.svg"}
+              width={28}
+              height={22}
+              alt="Message"
+            />
+            <span>soler.consultorias@gmail.com</span>
+          </div>
+          <div class="flex items-center max-lg:self-start gap-x-2">
+            <Image
+              src={"/footer/linkedin.svg"}
+              width={32}
+              height={32}
+              alt="LinkedIn"
+            />
+            <Image
+              src={"/footer/ig.svg"}
+              width={32}
+              height={32}
+              alt="Instagram"
+            />
+            <Image
+              src={"/footer/fb.svg"}
+              width={32}
+              height={32}
+              alt="Facebook"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="flex items-center justify-center py-12 font-bold text-lg tracking-wide"
+      >
+        <span>Soler E.A.S:Líderes en Innovación Empresarial. </span>
+      </div>
+    </div>
+  </div>
+  <div class="bg-white text-secundario py-2 text-center font-bold">
+    <span>Diseño y Desarrollo Web por FINCREATIVO</span>
+  </div>
+</footer>
