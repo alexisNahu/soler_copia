@@ -166,7 +166,10 @@ const pros = [
             {
               pros.slice(0, 3).map((value, idx) => {
                 return (
-                  <div class="flex items-center gap-x-2 ">
+                  <div
+                    aria-label={idx.toString()}
+                    class="flex items-center gap-x-2 "
+                  >
                     <Image
                       src={value.image}
                       width={45}
