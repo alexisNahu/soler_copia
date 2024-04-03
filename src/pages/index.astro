@@ -59,14 +59,14 @@ const servicios = [
       class="relative h-[1200px] lg:h-[1520px] w-full max-w-[1920px] mx-auto"
     >
       <Image
-        src={"/index/heroIndex.webp"}
+        src={"/index/solerHero.png"}
         width={1920}
         height={1820}
         alt="Hero index solar E.A.S. imagen descriptiva empresarial"
         loading={"eager"}
-        class="mx-auto object-cover absolute inset-0 -z-10 h-full animate-fade -mt-20 [mask-image:_linear-gradient(black_93%,_transparent);]"
+        class="mx-auto object-cover absolute inset-0 -z-10 h-full animate-fade -mt-64 [mask-image:_linear-gradient(black_90%,_transparent);]"
       />
-      <div class="flex flex-col h-full justify-between pt-24 pb-64">
+      <div class="flex flex-col h-full justify-between pt-24 pb-24">
         <div class="mx-auto text-secundario max-w-7xl px-4 md:px-12">
           <p
             id="paragraph1"
@@ -94,7 +94,7 @@ const servicios = [
           </hgroup>
           <div class="mx-auto">
             <div
-              class="bg-[#90A5BA] bg-opacity-80 flex flex-wrap justify-center max-lg:mx-auto lg:flex-row gap-2 md:gap-4 p-8"
+              class="bg-[#90A5BA] bg-opacity-90 flex flex-wrap justify-center max-lg:mx-auto lg:flex-row gap-2 md:gap-4 p-8"
             >
               {
                 garanitzamos.map((value, idx) => (
@@ -122,7 +122,7 @@ const servicios = [
       </div>
     </section>
 
-    <section class="pb-24 max-w-screen-2xl w-11/12 mx-auto">
+    <section class="pb-24 max-w-screen-2xl w-11/12 mx-auto relative z-10">
       <h1
         class="text-primarioOscuro text-center text-3xl lg:text-5xl font-semibold mb-12"
       >
@@ -133,9 +133,9 @@ const servicios = [
           servicios.map((value, idx) => (
             <div
               data-servicio={`Servicio: ${idx}`}
-              class={`flex flex-col h-[420px] md:h-[480px] lg:h-[600px] text-white bg-doradoSoler w-36 sm:w-44 md:w-56 lg:w-64 min-[1680px]:w-72`}
+              class={`flex flex-col rounded-lg h-[420px] md:h-[480px] lg:h-[540px] text-white bg-doradoSoler w-44 md:w-56 lg:w-64 min-[1680px]:w-72`}
             >
-              <div class="basis-5/12 flex items-center text-sm md:text-base xl:text-lg justify-center p-3 font-bold">
+              <div class="basis-4/12 flex pt-12 text-center  text-sm md:text-base xl:text-xl justify-center p-3 font-bold">
                 {value.title}
               </div>
               <div>
@@ -159,25 +159,37 @@ const servicios = [
       </div>
     </section>
 
-    <section class="relative h-[1450px] max-w-[1920px] m-auto -mt-48">
-      <Image
-        src={"/index/NuestroEquipo.webp"}
-        width={1920}
-        height={1500}
-        loading={"eager"}
-        alt="Nuestro equipo"
-        class="absolute object-left inset-0 -z-10 h-[1450px] object-cover w-full [mask-image:_linear-gradient(transparent,_black_5%);]"
-      />
+    <section class="relative h-[1250px] max-w-[1920px] m-auto -mt-48">
+      <picture>
+        <source media="(min-width:500px)" srcset="/index/NuestroEquipo.webp" />
+        <source
+          media="(min-width:0px)"
+          srcset="/index/NuestroEquipoMobile.webp"
+        />
+
+        <source media="(min-width:650px)" srcset="img_pink_flowers.jpg" />
+        <source media="(min-width:465px)" srcset="img_white_flower.jpg" />
+        <Image
+          src={"/index/NuestroEquipo.webp"}
+          width={1920}
+          height={1500}
+          loading={"eager"}
+          alt="Nuestro equipo"
+          class="absolute object-left inset-0 -z-10 h-[1450px] object-cover w-full [mask-image:_linear-gradient(transparent,_black_5%);]"
+        />
+      </picture>
       <div
         class="pt-48 max-w-6xl px-18 mx-auto text-xl lg:text-3xl font-bold text-center text-white"
       >
         <p>
           EN SOLER EAS, CONTAMOS CON UN EQUIPO DE PROFESIONALES ALTAMENTE
-          CUALIFICADOS Y COMPROMETIDOS QUE ABARCAN UNA AMPLIA GAMA DE
+          CALIFICADOS Y COMPROMETIDOS QUE ABARCAN UNA AMPLIA GAMA DE
           DISCIPLINAS.
         </p>
       </div>
-      <div class="grid place-items-center justify-items-end w-full h-full">
+      <div
+        class="grid place-items-center justify-items-end w-full h-full max-md:pb-24"
+      >
         <div
           class="bg-secundario/80 px-6 py-12 sm:px-12 sm:py-16 lg:py-28 lg:px-32 text text-white backdrop-blur-sm max-w-5xl"
         >
