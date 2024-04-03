@@ -4,9 +4,9 @@ import { Image } from "astro:assets";
 
 <footer class="bg-secundario text-white relative">
   <div
-    class="flex flex-col md:flex-row py-12 gap-12 px-8 mx-auto max-w-screen-2xl w-11/12"
+    class="flex flex-col md:flex-row py-12 gap-6 xl:gap-12 px-8 mx-auto max-w-screen-2xl w-11/12"
   >
-    <div>
+    <div class="md:flex-1 xl:flex-auto">
       <Image
         src={"/footer/solerFooter.webp"}
         width={240}
@@ -16,9 +16,11 @@ import { Image } from "astro:assets";
       />
     </div>
     <div
-      class="flex flex-col divide-y-2 divide-white font-bold max-w-4xl mx-auto"
+      class="flex flex-col divide-y-2 divide-white font-bold max-w-4xl mx-auto md:flex-1 xl:flex-auto"
     >
-      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 pb-12">
+      <div
+        class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 xl:gap-8 pb-12"
+      >
         <div class="flex gap-x-2 justify-start self-start">
           <Image
             src={"/footer/location.svg"}
@@ -95,13 +97,17 @@ import { Image } from "astro:assets";
       <div
         class="flex items-center justify-center py-12 font-bold text-lg tracking-wide"
       >
-        <span>Soler E.A.S:Líderes en Innovación Empresarial. </span>
+        <span>Soler E.A.S: Líderes en Innovación Empresarial. </span>
       </div>
     </div>
   </div>
   <div
     class="bg-white text-secundario py-2 text-center text-sm sm:text-base font-bold"
   >
-    <span>Diseño y Desarrollo Web por FINCREATIVO</span>
+    <span
+      >Diseño y Desarrollo Web por <a href="https://www.fincreativo.com/"
+        >FINCREATIVO</a
+      ></span
+    >
   </div>
 </footer>

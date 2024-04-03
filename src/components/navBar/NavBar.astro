@@ -4,7 +4,7 @@ import { Image } from "astro:assets";
 
 <header>
   <nav
-    class="relative flex flex-row container mx-auto justify-between text-secundario px-4 pt-2 z-10"
+    class="relative flex flex-row container mx-auto justify-between text-secundario px-6 pt-2 z-10"
   >
     <a href="/">
       <Image
@@ -18,7 +18,6 @@ import { Image } from "astro:assets";
     </a>
 
     <ul
-      data-navBar="navFlex"
       class="hidden lg:flex flex-row justify-evenly items-center gap-8 font-semibold xl:text-lg transition-colors"
     >
       <li><a href="/">INICIO</a></li>
@@ -27,6 +26,27 @@ import { Image } from "astro:assets";
       <li><a href="/profesionales">PROFESIONALES</a></li>
       <li><a href="/contacto">CONTACTO</a></li>
     </ul>
+
+    <div
+      class="sol lg:hidden cursor-pointer rounded-full grid place-items-center relative z-50"
+    >
+      <Image src={"/sol.png"} width={60} height={60} alt="Logo de soler" />
+    </div>
+
+    <div
+      style="opacity: 0"
+      class="nav-screen lg:hidden h-screen grid place-items-center bg-white fixed inset-0"
+    >
+      <ul
+        class="nav-items flex flex-col justify-evenly items-center gap-6 font-semibold text-lg"
+      >
+        <li style="opacity: 0"><a href="/">INICIO</a></li>
+        <li style="opacity: 0"><a href="/about">QUIÉNES SOMOS</a></li>
+        <li style="opacity: 0"><a href="/servicios">SERVICIOS</a></li>
+        <li style="opacity: 0"><a href="/profesionales">PROFESIONALES</a></li>
+        <li style="opacity: 0"><a href="/contacto">CONTACTO</a></li>
+      </ul>
+    </div>
   </nav>
 </header>
 
@@ -34,8 +54,75 @@ import { Image } from "astro:assets";
   import gsap from "gsap";
 
   document.addEventListener("DOMContentLoaded", () => {
+    const sol = document.querySelector(".sol") as HTMLDivElement | null;
+    const navScreen = document.querySelector(
+      ".nav-screen"
+    ) as HTMLDivElement | null;
     const path = window.location.pathname;
-    const nav = document.getElementById("menu");
+
+    let isNavScreenVisible = false;
+
+    function RotarSol() {
+      gsap.to(sol, {
+        rotate: "+=360",
+        duration: 1,
+        ease: "circ.inOut",
+      });
+
+      if (isNavScreenVisible) {
+        document.body.style.overflow = "";
+
+        const navItems = document.querySelectorAll(".nav-items li");
+        gsap.fromTo(
+          navItems,
+          {
+            opacity: 1,
+          },
+          {
+            opacity: 0,
+            y: 20,
+            stagger: 0.1,
+            duration: 0.5,
+            ease: "circ.inOut",
+            onComplete: () => {
+              gsap.to(navScreen, {
+                opacity: 0,
+                duration: 1,
+                ease: "circ.inOut",
+              });
+            },
+          }
+        );
+      } else {
+        document.body.style.overflow = "hidden";
+        gsap.to(navScreen, {
+          opacity: 1,
+          duration: 1,
+          ease: "circ.inOut",
+          onComplete: () => {
+            const navItems = document.querySelectorAll(".nav-items li");
+            gsap.fromTo(
+              navItems,
+              {
+                opacity: 0,
+                y: 20,
+              },
+              {
+                opacity: 1,
+                y: 0,
+                stagger: 0.1,
+                duration: 0.5,
+                ease: "circ.inOut",
+              }
+            );
+          },
+        });
+      }
+
+      isNavScreenVisible = !isNavScreenVisible;
+    }
+
+    sol?.addEventListener("click", RotarSol);
 
     const navLinks = document.querySelectorAll("nav ul li a");
 

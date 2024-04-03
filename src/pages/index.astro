@@ -67,7 +67,7 @@ const servicios = [
         class="mx-auto object-cover absolute inset-0 -z-10 h-full animate-fade -mt-20 [mask-image:_linear-gradient(black_93%,_transparent);]"
       />
       <div class="flex flex-col h-full justify-between pt-24 pb-64">
-        <div class="mx-auto text-secundario max-w-7xl px-12">
+        <div class="mx-auto text-secundario max-w-7xl px-4 md:px-12">
           <p
             id="paragraph1"
             class="font-bold text-xl md:text-2xl lg:text-3xl text-center mb-12"
@@ -133,7 +133,7 @@ const servicios = [
           servicios.map((value, idx) => (
             <div
               data-servicio={`Servicio: ${idx}`}
-              class={`flex flex-col h-[420px] md:h-[480px] lg:h-[600px] text-white bg-[#d4cdb3] w-36 sm:w-44 md:w-56 lg:w-64 2xl:w-72`}
+              class={`flex flex-col h-[420px] md:h-[480px] lg:h-[600px] text-white bg-[#d4cdb3] w-36 sm:w-44 md:w-56 lg:w-64 min-[1680px]:w-72`}
             >
               <div class="basis-5/12 flex items-center text-sm md:text-base justify-center p-3 font-bold">
                 {value.title}
@@ -159,7 +159,7 @@ const servicios = [
       </div>
     </section>
 
-    <section class="relative h-[1450px] max-w-[1920px] m-auto -mt-32">
+    <section class="relative h-[1450px] max-w-[1920px] m-auto -mt-48">
       <Image
         src={"/index/NuestroEquipo.webp"}
         width={1920}
@@ -293,8 +293,8 @@ const servicios = [
     gsap.to(Array.from(element.children), {
       opacity: 1,
       ease: "sine.inOut",
-      stagger: 0.01,
-      duration: 0.1,
+      stagger: 0.015,
+      duration: 0.5,
     });
   };
 
@@ -314,7 +314,7 @@ const servicios = [
 
       setTimeout(() => {
         animateTextByLetter(p2, texto2);
-      }, totalDelayForP1 * 180);
+      }, totalDelayForP1 * 400);
     }
   };
 
