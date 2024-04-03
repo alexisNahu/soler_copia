@@ -8,6 +8,7 @@ export default {
         primarioClaro: "#d4cdb3",
         primarioOscuro: "#d0ae55",
         secundario: "#5e7482",
+        doradoSoler: "#d2bf7a",
       },
     },
   },
