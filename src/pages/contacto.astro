@@ -11,7 +11,7 @@ import Layout from "../layouts/Layout.astro";
       title="Escribinos"
       title2="CONTACTO"
     />
-    <section class="h-[930px] relative">
+    <section class="h-[970px] relative">
       <Image
         src={"/contacto/contactoBg.webp"}
         width={1920}
@@ -21,7 +21,7 @@ import Layout from "../layouts/Layout.astro";
         class="absolute inset-0 mx-auto h-full object-cover -z-10"
       />
       <div
-        class="grid lg:grid-cols-2 gap-x-24 py-12 text-lg text-secundario max-w-screen-2xl w-11/12 mx-auto"
+        class="grid place-items-center lg:grid-cols-2 gap-12 lg:gap-24 pt-12 pb-24 text-lg text-secundario max-w-screen-2xl w-11/12 mx-auto"
       >
         <div class="">
           <p class="mb-6 leading-5">
@@ -29,14 +29,14 @@ import Layout from "../layouts/Layout.astro";
             el siguiente formulario de contacto, le responderemos en la brevedad
             posible.
           </p>
-          <form action="">
+          <form action="" class="flex flex-col">
             <label for="nombre" class="sr-only">Nombre y apellido</label>
             <input
               id="nombre"
               autocomplete="name"
               name="nombre"
               placeholder="Nombre y Apellido *"
-              class="bg-transparent border-[1.5px] border-secundario rounded-lg rounded-tr-none px-6 py-4 placeholder:text-secundario placeholder:font-bold focus:outline-none caret-secundario w-full max-w-xl mb-6"
+              class="bg-transparent border-[1.5px] border-secundario rounded-lg rounded-tr-none px-6 py-4 placeholder:text-secundario placeholder:font-bold focus:outline-none caret-secundario w-full max-w-lg lg:max-w-xl mb-6"
             />
             <label for="email" class="sr-only">Correo electrónico</label>
             <input
@@ -44,18 +44,18 @@ import Layout from "../layouts/Layout.astro";
               autocomplete="name"
               name="email"
               placeholder="Correo electrónico"
-              class="bg-transparent border-[1.5px] border-secundario rounded-lg rounded-tr-none px-6 py-4 placeholder:text-secundario placeholder:font-bold focus:outline-none caret-secundario w-full max-w-xl mb-6"
+              class="bg-transparent border-[1.5px] border-secundario rounded-lg rounded-tr-none px-6 py-4 placeholder:text-secundario placeholder:font-bold focus:outline-none caret-secundario w-full max-w-lg lg:max-w-xl mb-6"
             />
             <textarea
               name="message"
               id="mensaje"
               placeholder="Mensaje"
               rows="4"
-              class="bg-transparent border-[1.5px] border-secundario rounded-lg rounded-tr-none px-6 py-4 placeholder:text-secundario placeholder:font-bold focus:outline-none caret-secundario w-full max-w-xl mb-4 resize-none"
+              class="bg-transparent border-[1.5px] border-secundario rounded-lg rounded-tr-none px-6 py-4 placeholder:text-secundario placeholder:font-bold focus:outline-none caret-secundario w-full max-w-lg lg:max-w-xl mb-4 resize-none"
             ></textarea>
             <button
               type="submit"
-              class="text-white px-10 py-3 rounded-lg rounded-tr-none bg-primarioOscuro"
+              class="text-white px-10 py-3 rounded-lg rounded-tr-none bg-primarioOscuro max-w-40"
               >ENVIAR</button
             >
           </form>

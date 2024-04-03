@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { Image } from "astro:assets";
+import { Image, Picture } from "astro:assets";
 
 const garanitzamos = [
   {
@@ -55,23 +55,28 @@ const servicios = [
 
 <Layout title="SOLER EAS">
   <main>
-    <section class="relative h-[1700px] w-full max-w-[1920px] mx-auto">
+    <section
+      class="relative h-[1200px] lg:h-[1520px] w-full max-w-[1920px] mx-auto"
+    >
       <Image
         src={"/index/heroIndex.webp"}
         width={1920}
         height={1820}
         alt="Hero index solar E.A.S. imagen descriptiva empresarial"
         loading={"eager"}
-        class="mx-auto object-cover absolute inset-0 -z-10 h-[1700px] w-full animate-fade [mask-image:_linear-gradient(black_90%,_transparent);]"
+        class="mx-auto object-cover absolute inset-0 -z-10 h-full animate-fade -mt-20 [mask-image:_linear-gradient(black_93%,_transparent);]"
       />
-      <div class="flex flex-col h-full justify-between py-24">
+      <div class="flex flex-col h-full justify-between pt-24 pb-64">
         <div class="mx-auto text-secundario max-w-7xl px-12">
-          <p class="font-bold text-3xl text-center mb-12">
-            En un entorno empresarial cada vez más complejo y regulado...
+          <p
+            id="paragraph1"
+            class="font-bold text-xl md:text-2xl lg:text-3xl text-center mb-12"
+          >
           </p>
-          <p class="text-center text-3xl font-normal">
-            Contar con el apoyo de una consultora especializada en temas
-            regulatorios se vuelve fundamental para las empresas en Paraguay.
+          <p
+            id="paragraph2"
+            class="text-center text-xl sm:text-2xl lg:text-3xl font-normal leading-5"
+          >
           </p>
         </div>
         <div class="w-full">
@@ -82,24 +87,29 @@ const servicios = [
               COMO EMPRESA GARANTIZAMOS...
             </h1>
             <h1
-              class="text-secundario text-3xl lg:text-6xl font-bold xl:text-9xl pointer-events-none select-none absolute inset-6 text-opacity-20 mx-auto text-center"
+              class="text-secundario text-3xl lg:text-6xl font-bold xl:text-9xl pointer-events-none select-none absolute max-sm:inset-14 sm:inset-6 text-opacity-20 mx-auto text-center"
             >
               GARANTIZAMOS
             </h1>
           </hgroup>
           <div class="mx-auto">
             <div
-              class="bg-[#90A5BA] bg-opacity-80 flex flex-col lg:flex-row gap-6 p-10"
+              class="bg-[#90A5BA] bg-opacity-80 flex flex-wrap justify-center max-lg:mx-auto lg:flex-row gap-2 md:gap-4 p-8"
             >
               {
                 garanitzamos.map((value, idx) => (
-                  <div class="flex flex-col text-white flex-1 items-center mx-auto text-center">
+                  <div
+                    data-garatizamos={`Garantia ${idx}`}
+                    class="flex flex-col text-white flex-1 items-center mx-auto text-center text-xs sm:text-base lg:text-lg md:font-bold"
+                  >
                     <Image
                       src={value.img}
                       width={110}
+                      widths={[40, 60, 110]}
                       height={110}
                       alt={value.title}
-                      class="mx-auto aspect-square mb-2"
+                      class="mx-auto aspect-square mb-2 max-sm:w-[60px]"
+                      sizes={`(max-width:380px) 40px,(max-width: 570px) 60px, (max-width: 720px)110px`}
                       loading={"lazy"}
                     />
                     <span>{value.title}</span>
@@ -112,18 +122,20 @@ const servicios = [
       </div>
     </section>
 
-    <section class="py-24 container w-11/12 mx-auto">
-      <h1 class="text-primarioOscuro text-center text-5xl font-semibold mb-12">
+    <section class="pb-24 max-w-screen-2xl w-11/12 mx-auto">
+      <h1
+        class="text-primarioOscuro text-center text-3xl lg:text-5xl font-semibold mb-12"
+      >
         NUESTROS SERVICIOS
       </h1>
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+      <div class="flex justify-center flex-wrap gap-6">
         {
           servicios.map((value, idx) => (
             <div
               data-servicio={`Servicio: ${idx}`}
-              class="flex flex-col h-[600px] text-white bg-[#d4cdb3] flex-1"
+              class={`flex flex-col h-[420px] md:h-[480px] lg:h-[600px] text-white bg-[#d4cdb3] w-36 sm:w-44 md:w-56 lg:w-64 2xl:w-72`}
             >
-              <div class="basis-5/12 flex items-center justify-center p-3 font-bold">
+              <div class="basis-5/12 flex items-center text-sm md:text-base justify-center p-3 font-bold">
                 {value.title}
               </div>
               <div>
@@ -132,12 +144,12 @@ const servicios = [
                   width={600}
                   height={400}
                   alt=""
-                  class="w-full h-auto"
+                  class={`w-full h-auto`}
                   loading={"lazy"}
                 />
               </div>
               <div class="p-4 flex items-center justify-center flex-1">
-                <button class="px-6 py-3 border-2 rounded-md border-white bg-transparent hover:bg-primarioOscuro transition-colors uppercase">
+                <button class="px-2 sm:px-4 md:px-6 py-3 text-sm md:text-base border-2 rounded-md rounded-tr-none border-white bg-transparent hover:bg-primarioOscuro transition-colors uppercase">
                   Me interesa
                 </button>
               </div>
@@ -176,8 +188,8 @@ const servicios = [
             <li class="flex gap-x-2 font-semibold">
               <Image
                 src={"/index/check.svg"}
-                width={33}
-                height={33}
+                width={23}
+                height={23}
                 alt="check"
                 loading={"eager"}
               />
@@ -186,8 +198,8 @@ const servicios = [
             <li class="flex gap-x-2 font-semibold">
               <Image
                 src={"/index/check.svg"}
-                width={33}
-                height={33}
+                width={23}
+                height={23}
                 alt="check"
                 loading={"eager"}
               />
@@ -196,28 +208,19 @@ const servicios = [
             <li class="flex gap-x-2 font-semibold">
               <Image
                 src={"/index/check.svg"}
-                width={33}
-                height={33}
+                width={23}
+                height={23}
                 alt="check"
                 loading={"eager"}
               />
-              <span>TECNÓLOGOS DE ALIMENTOS</span>
+              <span>TECNÓLOGOS DE ALIMENTOS VETERINARIOS</span>
             </li>
+
             <li class="flex gap-x-2 font-semibold">
               <Image
                 src={"/index/check.svg"}
-                width={33}
-                height={33}
-                alt="check"
-                loading={"eager"}
-              />
-              <span>VETERINARIOS</span>
-            </li>
-            <li class="flex gap-x-2 font-semibold">
-              <Image
-                src={"/index/check.svg"}
-                width={33}
-                height={33}
+                width={23}
+                height={23}
                 alt="check"
                 loading={"eager"}
               />
@@ -226,8 +229,8 @@ const servicios = [
             <li class="flex gap-x-2 font-semibold">
               <Image
                 src={"/index/check.svg"}
-                width={33}
-                height={33}
+                width={23}
+                height={23}
                 alt="check"
                 loading={"eager"}
               />
@@ -236,8 +239,8 @@ const servicios = [
             <li class="flex gap-x-2 font-semibold">
               <Image
                 src={"/index/check.svg"}
-                width={33}
-                height={33}
+                width={23}
+                height={23}
                 alt="check"
                 loading={"eager"}
               />
@@ -246,8 +249,8 @@ const servicios = [
             <li class="flex gap-x-2 font-semibold">
               <Image
                 src={"/index/check.svg"}
-                width={33}
-                height={33}
+                width={23}
+                height={23}
                 alt="check"
                 loading={"eager"}
               />
@@ -256,8 +259,8 @@ const servicios = [
             <li class="flex gap-x-2 font-semibold">
               <Image
                 src={"/index/check.svg"}
-                width={33}
-                height={33}
+                width={23}
+                height={23}
                 alt="check"
                 loading={"eager"}
               />
@@ -269,3 +272,51 @@ const servicios = [
     </section>
   </main>
 </Layout>
+
+<script>
+  import gsap from "gsap";
+
+  const animateTextByLetter = (element: HTMLElement, text: string) => {
+    element.textContent = "";
+
+    const docFragment = document.createDocumentFragment();
+
+    Array.from(text).forEach((letter) => {
+      const span = (document.createElement("span") as HTMLSpanElement) || null;
+      span.textContent = letter;
+      span.style.opacity = "0";
+      docFragment.appendChild(span);
+    });
+
+    element.appendChild(docFragment);
+
+    gsap.to(Array.from(element.children), {
+      opacity: 1,
+      ease: "sine.inOut",
+      stagger: 0.01,
+      duration: 0.1,
+    });
+  };
+
+  const script = () => {
+    const p1 = document.getElementById("paragraph1");
+    const p2 = document.getElementById("paragraph2");
+
+    const texto1 =
+      "En un entorno empresarial cada vez más complejo y regulado...";
+    const texto2 =
+      "Contar con el apoyo de una consultora especializada en temas regulatorios se vuelve fundamental para las empresas en Paraguay.";
+
+    if (p1 && p2) {
+      animateTextByLetter(p1, texto1);
+
+      const totalDelayForP1 = texto1.length * 0.05 + 0.5;
+
+      setTimeout(() => {
+        animateTextByLetter(p2, texto2);
+      }, totalDelayForP1 * 180);
+    }
+  };
+
+  document.addEventListener("DOMContentLoaded", script);
+</script>

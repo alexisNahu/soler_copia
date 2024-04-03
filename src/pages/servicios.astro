@@ -40,15 +40,15 @@ const servicios = [
       title2="SERVICIOS"
     />
     <section class="max-w-screen-2xl mx-auto w-11/12 py-24">
-      <div class="grid gap-8 lg:gap-12 grid-cols-2 lg:grid-cols-3">
+      <div class="grid gap-6 lg:gap-12 grid-cols-2 lg:grid-cols-3">
         {
           servicios.map((value, idx) => {
             return (
               <div data-key={`Servicio: ${idx}`}>
-                <h3 class="font-bold text-3xl text-primarioOscuro mb-6">
+                <h3 class="font-bold text-xl lg:text-3xl text-primarioOscuro mb-6">
                   {value.title}
                 </h3>
-                <p class="text-secundario text-lg font-medium mb-6">
+                <p class="text-secundario text-lg font-medium mb-6 max-md:line-clamp-5">
                   {value.text}
                 </p>
                 <button class="border-[1.5px] border-primarioOscuro rounded-lg rounded-tr-none px-5 py-3 text-primarioOscuro font-semibold transition-colors hover:bg-secundario/10">

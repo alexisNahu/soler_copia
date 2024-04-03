@@ -2,18 +2,22 @@
 import { Image } from "astro:assets";
 ---
 
-<footer class="bg-secundario text-white">
+<footer class="bg-secundario text-white relative">
   <div
-    class="container flex flex-col md:flex-row py-12 gap-12 px-8 mx-auto max-w-screen-2xl w-11/12 lg:w-4/5"
+    class="flex flex-col md:flex-row py-12 gap-12 px-8 mx-auto max-w-screen-2xl w-11/12"
   >
-    <Image
-      src={"/footer/solerFooter.webp"}
-      width={240}
-      height={254}
-      alt="Footer Logo"
-      class="mx-auto"
-    />
-    <div class="flex flex-col divide-y-2 divide-white font-bold">
+    <div>
+      <Image
+        src={"/footer/solerFooter.webp"}
+        width={240}
+        height={254}
+        alt="Footer Logo"
+        class="mx-auto w-full max-w-[240px]"
+      />
+    </div>
+    <div
+      class="flex flex-col divide-y-2 divide-white font-bold max-w-4xl mx-auto"
+    >
       <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 pb-12">
         <div class="flex gap-x-2 justify-start self-start">
           <Image
@@ -95,7 +99,9 @@ import { Image } from "astro:assets";
       </div>
     </div>
   </div>
-  <div class="bg-white text-secundario py-2 text-center font-bold">
+  <div
+    class="bg-white text-secundario py-2 text-center text-sm sm:text-base font-bold"
+  >
     <span>Diseño y Desarrollo Web por FINCREATIVO</span>
   </div>
 </footer>

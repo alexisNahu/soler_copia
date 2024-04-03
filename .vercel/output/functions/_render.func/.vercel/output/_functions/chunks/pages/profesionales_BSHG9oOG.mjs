@@ -1,0 +1,94 @@
+/* empty css                          */
+import { e as createAstro, f as createComponent, r as renderTemplate, i as renderComponent, m as maybeRenderHead } from '../astro_B5SYsdU8.mjs';
+import 'kleur/colors';
+import 'html-escaper';
+import { $ as $$Image, a as $$Layout } from './about_CCLA5HOM.mjs';
+import { $ as $$HeaderBanner } from './contacto_Ch_CJcfH.mjs';
+
+const $$Astro = createAstro();
+const $$Profesionales = createComponent(async ($$result, $$props, $$slots) => {
+  const Astro2 = $$result.createAstro($$Astro, $$props, $$slots);
+  Astro2.self = $$Profesionales;
+  const pros = [
+    {
+      image: "/profesionales/pro1.svg",
+      title: "Ingenieros Qui\u0301micos  "
+    },
+    {
+      image: "/profesionales/pro2.svg",
+      title: "Qui\u0301micos Farmace\u0301uticos"
+    },
+    {
+      image: "/profesionales/pro3.svg",
+      title: "Tecno\u0301logos de Alimentos Veterinarios"
+    },
+    {
+      image: "/profesionales/pro4.svg",
+      title: "Ingenieros Agro\u0301nomos y Ambientales"
+    },
+    {
+      image: "/profesionales/pro5.svg",
+      title: "Ingenieros Civiles"
+    },
+    {
+      image: "/profesionales/pro6.svg",
+      title: "Arquitectos"
+    },
+    {
+      image: "/profesionales/pro7.svg",
+      title: "Abogados Despachantes de Aduanas"
+    },
+    {
+      image: "/profesionales/pro8.svg",
+      title: "Profesionales de Comercio Exterior"
+    }
+  ];
+  return renderTemplate`${renderComponent($$result, "Layout", $$Layout, { "title": "Profesionales" }, { "default": ($$result2) => renderTemplate` ${maybeRenderHead()}<main> ${renderComponent($$result2, "HeaderBanner", $$HeaderBanner, { "image": "/profesionales/proBanner.webp", "title": "Equipo de Profesionales", "title2": "PROFESIONALES" })} <section class="w-full bg-[#d4cdb3] py-24 text-white font-bold text-lg sm:text-xl lg:text-2xl text-center"> <div class="max-w-4xl mx-auto w-11/12"> <p>
+En Soler E.A.S., creemos en el poder de la experiencia y la dedicación
+          para superar los desafíos empresariales. Como Ingeniero Químico y
+          Líder del Equipo, me enorgullece contar con talentosos profesionales
+          multidisciplinarios, para brindar soluciones personalizadas que
+          aseguren el cumplimiento normativo y el éxito a largo plazo para
+          nuestros clientes.
+</p> </div> </section> <section class="w-11/12 mx-auto text-secundario font-bold text-base lg:text-lg relative"> <div class="max-w-screen-xl w-11/12 mx-auto flex flex-col lg:flex-row py-12 gap-y-6 max-xl:gap-x-4 justify-center"> <div class="-mt-32"> ${renderComponent($$result2, "Image", $$Image, { "src": "/profesionales/joseSoler.webp", "width": 302, "height": 302, "alt": "Fotografia del Ing. Quim. Jose Soler", "class": "mx-auto max-lg:px-12", "loading": "eager" })} </div> <div class="h-full max-w-3xl mx-auto w-11/12"> <hgroup> <h1 class="text-2xl lg:text-3xl mb-4">
+Ing. Quím. José Soler, MADE.
+</h1> <h2 class="text-xl lg:text-2xl mb-12">
+Fundador y Director Ejecutivo, Soler E.A.S.
+</h2> </hgroup> <ul class="list-disc list-inside flex flex-col gap-y-6"> <li>
+Egresado de la Facultad de Ciencias Químicas de la Universidad
+              Nacional de Asunción.
+</li> <li>
+Magíster en Administración y Dirección de Empresas, Universidad
+              Americana.
+</li> <li>
+Presidente de la Asociación Paraguaya de Ingenieros Químicos
+              (APIQ). Auditor Líder - Jefe de Sistemas Integrados ISO.
+</li> <li>
+Regente y Director Técnico con experiencia en Asuntos Regulatorios
+              ante Entes Sanitarios gubernamentales.
+</li> <li>
+Catedrático en la Facultad de Ciencias Químicas UNA para las
+              carreras de Ingeniería Química e Ingeniería de Alimentos en las
+              asignaturas de Operaciones Unitarias, Administración y Física
+              Avanzada.
+</li> </ul> </div> </div> </section> <section class="relative text-white max-w-[1920px] mx-auto h-[970px]"> ${renderComponent($$result2, "Image", $$Image, { "src": "/profesionales/proBg.webp", "width": 1920, "height": 970, "alt": "3 profesionales observando, inspirando confianza", "class": "h-full object-cover absolute inset-0 mx-auto -z-10" })} <div class="grid lg:grid-cols-2 pt-32 w-11/12 max-lg:mx-auto gap-12 xl:gap-24"> <div class="max-lg:order-last px-6 lg:pl-28 lg:pr-20 py-9 lg:py-20 font-semibold sm:text-lg lg:text-xl bg-[#D4CDB3] bg-opacity-80"> <p class="mb-6">
+En Soler EAS, contamos con un equipo de profesionales altamente
+            cualificados y comprometidos que abarcan una amplia gama de
+            disciplinas.
+</p> <p>
+Cada uno de nuestros profesionales aporta su experiencia y
+            conocimientos especializados para ofrecer soluciones integrales y
+            adaptadas a las necesidades específicas de cada cliente,
+            garantizando así un servicio de la más alta calidad y excelencia en
+            todas nuestras operaciones.
+</p> </div> <div class="grid grid-cols-2 gap-x-4 text-sm sm:text-base font-semibold uppercase"> <div class="flex flex-col gap-y-6"> ${pros.slice(0, 3).map((value, idx) => {
+    return renderTemplate`<div class="flex items-center gap-x-2 "> ${renderComponent($$result2, "Image", $$Image, { "src": value.image, "width": 45, "height": 45, "alt": value.title })} <div class="relative"> ${value.title} <div class="w-20 h-[2px] bg-white absolute top-full"></div> </div> </div>`;
+  })} </div> <div class="flex flex-col gap-y-6"> ${pros.slice(3, Infinity).map((value, idx) => {
+    return renderTemplate`<div class="flex items-center gap-x-2"> ${renderComponent($$result2, "Image", $$Image, { "src": value.image, "width": 45, "height": 45, "alt": value.title })} <div class="relative"> ${value.title} <div class="w-20 h-[2px] bg-white absolute top-full"></div> </div> </div>`;
+  })} </div> </div> </div> </section> </main> ` })}`;
+}, "C:/Users/diana/source/repos/soler eas/src/pages/profesionales.astro", void 0);
+
+const $$file = "C:/Users/diana/source/repos/soler eas/src/pages/profesionales.astro";
+const $$url = "/profesionales";
+
+export { $$Profesionales as default, $$file as file, $$url as url };
