@@ -49,15 +49,33 @@ const pros = [
     <section
       class="w-full bg-doradoSoler py-24 text-white font-bold text-lg sm:text-xl lg:text-2xl text-center"
     >
-      <div class="max-w-4xl mx-auto w-11/12">
-        <p>
-          En Soler E.A.S., creemos en el poder de la experiencia y la dedicación
-          para superar los desafíos empresariales. Como Ingeniero Químico y
-          Líder del Equipo, me enorgullece contar con talentosos profesionales
-          multidisciplinarios, para brindar soluciones personalizadas que
-          aseguren el cumplimiento normativo y el éxito a largo plazo para
-          nuestros clientes.
-        </p>
+      <div class="max-w-5xl mx-auto w-4/5">
+        <div class="relative">
+          <Image
+            src={"/profesionales/comillaOpen.svg"}
+            width={90}
+            height={200}
+            alt="Comilla apertura"
+            aria-label="comilla de apertura"
+            class="absolute bottom-full sm:right-full"
+          />
+          <p>
+            En Soler E.A.S., creemos en el poder de la experiencia y la
+            dedicación para superar los desafíos empresariales. Como Ingeniero
+            Químico y Líder del Equipo, me enorgullece contar con talentosos
+            profesionales multidisciplinarios, para brindar soluciones
+            personalizadas que aseguren el cumplimiento normativo y el éxito a
+            largo plazo para nuestros clientes.
+          </p>
+          <Image
+            src={"/profesionales/comillaClose.svg"}
+            width={90}
+            height={200}
+            alt="Comilla de cierre"
+            aria-label="comilla de cierre"
+            class="absolute top-full max-sm:right-0 sm:left-full"
+          />
+        </div>
       </div>
     </section>
     <section
@@ -71,7 +89,7 @@ const pros = [
             src={"/profesionales/joseSoler.webp"}
             width={302}
             height={302}
-            sizes={`(max-width:274px) 200px,(max-width: 360px) 260px, (max-width: 720px)139px`}
+            sizes={`(max-width:274px) 200px, (max-width: 400px) 200px, (max-width: 720px) 300px`}
             alt={"Fotografia del Ing. Quim. Jose Soler"}
             class="mx-auto"
             loading={"eager"}
