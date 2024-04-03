@@ -38,6 +38,14 @@ import Layout from "../layouts/Layout.astro";
               placeholder="Nombre y Apellido *"
               class="bg-transparent border-[1.5px] border-secundario rounded-lg rounded-tr-none px-6 py-4 placeholder:text-secundario placeholder:font-bold focus:outline-none caret-secundario w-full max-w-lg lg:max-w-xl mb-6"
             />
+            <label for="phone" class="sr-only">Telefono</label>
+            <input
+              id="phone"
+              autocomplete="tel"
+              name="phone"
+              placeholder="Teléfono"
+              class="bg-transparent border-[1.5px] border-secundario rounded-lg rounded-tr-none px-6 py-4 placeholder:text-secundario placeholder:font-bold focus:outline-none caret-secundario w-full max-w-lg lg:max-w-xl mb-6"
+            />
             <label for="email" class="sr-only">Correo electrónico</label>
             <input
               id="email"
@@ -46,6 +54,7 @@ import Layout from "../layouts/Layout.astro";
               placeholder="Correo electrónico"
               class="bg-transparent border-[1.5px] border-secundario rounded-lg rounded-tr-none px-6 py-4 placeholder:text-secundario placeholder:font-bold focus:outline-none caret-secundario w-full max-w-lg lg:max-w-xl mb-6"
             />
+
             <textarea
               name="message"
               id="mensaje"
