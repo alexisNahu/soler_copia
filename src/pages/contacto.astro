@@ -21,7 +21,7 @@ import Layout from "../layouts/Layout.astro";
         class="absolute inset-0 mx-auto h-full object-cover -z-10"
       />
       <div
-        class="grid place-items-center lg:grid-cols-2 gap-12 lg:gap-24 pt-12 pb-24 text-lg text-secundario max-w-screen-2xl w-11/12 mx-auto"
+        class="grid place-items-center pt-12 pb-24 text-lg text-secundario max-w-5xl w-11/12 mx-auto"
       >
         <div class="">
           <p class="mb-6 leading-5">
@@ -29,7 +29,10 @@ import Layout from "../layouts/Layout.astro";
             el siguiente formulario de contacto, le responderemos en la brevedad
             posible.
           </p>
-          <form id="form" class="flex flex-col">
+          <form
+            id="form"
+            class="flex flex-col justify-center items-center max-w-lg mx-auto"
+          >
             <label for="nombre" class="sr-only">Nombre y apellido</label>
             <input
               id="nombre"
@@ -78,17 +81,6 @@ import Layout from "../layouts/Layout.astro";
             >
             <div id="alert"></div>
           </form>
-        </div>
-        <div class="flex flex-col">
-          <span>Estamos aquí</span>
-
-          <Image
-            src={"/contacto/mapa.webp"}
-            width={625}
-            height={441}
-            alt="Mapa ubicacion"
-            class="rounded-lg rounded-tr-none w-full"
-          />
         </div>
       </div>
     </section>
