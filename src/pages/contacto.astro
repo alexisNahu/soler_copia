@@ -39,20 +39,21 @@ import Layout from "../layouts/Layout.astro";
               placeholder="Nombre y Apellido *"
               class="bg-transparent border-[1.5px] border-secundario rounded-lg rounded-tr-none px-6 py-4 placeholder:text-secundario placeholder:font-bold focus:outline-none caret-secundario w-full max-w-lg lg:max-w-xl mb-6"
             />
-            <label for="phone" class="sr-only">Telefono</label>
+            <label for="telefono" class="sr-only">Telefono</label>
             <input
-              id="phone"
+              id="telefono"
               autocomplete="tel"
-              name="teléfono"
+              name="telefono"
               aria-required="true"
               placeholder="Teléfono"
               class="bg-transparent border-[1.5px] border-secundario rounded-lg rounded-tr-none px-6 py-4 placeholder:text-secundario placeholder:font-bold focus:outline-none caret-secundario w-full max-w-lg lg:max-w-xl mb-6"
             />
-            <label for="email" class="sr-only">Correo electrónico</label>
+            <label for="correo" class="sr-only">Correo electrónico</label>
             <input
-              id="email"
+              id="correo"
               autocomplete="name"
-              name="email"
+              name="correo"
+              type="email"
               aria-required="true"
               placeholder="Correo electrónico"
               class="bg-transparent border-[1.5px] border-secundario rounded-lg rounded-tr-none px-6 py-4 placeholder:text-secundario placeholder:font-bold focus:outline-none caret-secundario w-full max-w-lg lg:max-w-xl mb-6"
@@ -140,6 +141,8 @@ import Layout from "../layouts/Layout.astro";
           body: JSON.stringify(formValues),
         }
       );
+
+      console.log(formValues);
 
       if (!response.ok) {
         alertHTML?.insertAdjacentHTML(
