@@ -72,9 +72,12 @@ import { Image } from "astro:assets";
     const links = document.querySelectorAll("nav a");
 
     links.forEach((link) => {
-      link.addEventListener("click", function (e) {
+      // Aseguramos que 'link' es de tipo 'HTMLAnchorElement'
+      const anchor = link as HTMLAnchorElement;
+
+      anchor.addEventListener("click", (e) => {
         e.preventDefault(); // Prevenir la navegación directa
-        const href = this.href;
+        const href = anchor.href; // Ahora es seguro acceder a 'href'
 
         gsap.to('[data-animation="soler"]', {
           opacity: 0,
