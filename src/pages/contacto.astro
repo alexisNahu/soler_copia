@@ -11,7 +11,7 @@ import Layout from "../layouts/Layout.astro";
       title="Escribinos"
       title2="CONTACTO"
     />
-    <section class="h-[1070px] relative">
+    <section class="h-full max-lg:pb-12 lg:h-[1070px] relative">
       <Image
         src={"/contacto/contactoBg.webp"}
         width={1920}
@@ -29,13 +29,12 @@ import Layout from "../layouts/Layout.astro";
             el siguiente formulario de contacto, le responderemos en la brevedad
             posible.
           </p>
-          <form action="" class="flex flex-col">
+          <form id="form" class="flex flex-col">
             <label for="nombre" class="sr-only">Nombre y apellido</label>
             <input
               id="nombre"
               autocomplete="name"
               name="nombre"
-              required
               aria-required="true"
               placeholder="Nombre y Apellido *"
               class="bg-transparent border-[1.5px] border-secundario rounded-lg rounded-tr-none px-6 py-4 placeholder:text-secundario placeholder:font-bold focus:outline-none caret-secundario w-full max-w-lg lg:max-w-xl mb-6"
@@ -44,8 +43,7 @@ import Layout from "../layouts/Layout.astro";
             <input
               id="phone"
               autocomplete="tel"
-              name="phone"
-              required
+              name="teléfono"
               aria-required="true"
               placeholder="Teléfono"
               class="bg-transparent border-[1.5px] border-secundario rounded-lg rounded-tr-none px-6 py-4 placeholder:text-secundario placeholder:font-bold focus:outline-none caret-secundario w-full max-w-lg lg:max-w-xl mb-6"
@@ -55,24 +53,29 @@ import Layout from "../layouts/Layout.astro";
               id="email"
               autocomplete="name"
               name="email"
-              required
               aria-required="true"
               placeholder="Correo electrónico"
               class="bg-transparent border-[1.5px] border-secundario rounded-lg rounded-tr-none px-6 py-4 placeholder:text-secundario placeholder:font-bold focus:outline-none caret-secundario w-full max-w-lg lg:max-w-xl mb-6"
             />
 
             <textarea
-              name="message"
+              name="mensaje"
               id="mensaje"
               placeholder="Mensaje"
               rows="4"
-              class="bg-transparent border-[1.5px] border-secundario rounded-lg rounded-tr-none px-6 py-4 placeholder:text-secundario placeholder:font-bold focus:outline-none caret-secundario w-full max-w-lg lg:max-w-xl mb-4 resize-none"
+              class="bg-transparent border-[1.5px] border-secundario rounded-lg rounded-tr-none px-6 py-4 placeholder:text-secundario placeholder:font-bold focus:outline-none caret-secundario w-full max-w-lg lg:max-w-xl mb-6 resize-none"
             ></textarea>
+            <div
+              class="g-recaptcha mb-4"
+              data-sitekey="6Lf3XK8pAAAAAPBUpr9_8cg0jFbBwoZgUEbe_7Aq"
+            >
+            </div>
             <button
               type="submit"
-              class="text-white px-10 py-3 rounded-lg rounded-tr-none bg-primarioOscuro max-w-40"
+              class="text-white px-10 py-3 rounded-lg rounded-tr-none mb-4 bg-primarioOscuro max-w-40"
               >ENVIAR</button
             >
+            <div id="alert"></div>
           </form>
         </div>
         <div class="flex flex-col">
@@ -90,3 +93,42 @@ import Layout from "../layouts/Layout.astro";
     </section>
   </main>
 </Layout>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<script>
+  const formulario = document.querySelector("#form") as HTMLFormElement | null;
+  const alertHTML = document.getElementById("alert") as HTMLDivElement | null;
+
+  formulario?.addEventListener("submit", async (e: Event) => {
+    e.preventDefault();
+
+    const datosFormulario = new FormData(formulario);
+    const valores: { [key: string]: FormDataEntryValue } = {};
+
+    if (alertHTML) alertHTML.innerHTML = "";
+
+    for (let [key, value] of datosFormulario.entries()) {
+      if (
+        (key === "nombre" ||
+          key === "teléfono" ||
+          key === "email" ||
+          key === "g-recaptcha-response") &&
+        typeof value === "string" &&
+        value.trim() === ""
+      ) {
+        alertHTML?.insertAdjacentHTML(
+          "beforeend",
+          `<p class="textAlert text-red-400 mx-auto">El campo de ${key === "g-recaptcha-response" ? "Recaptcha" : key} debe ser completado.</p>`
+        );
+        return;
+      }
+
+      valores[key] = value;
+    }
+
+    let formValues = { ...valores };
+
+    delete formValues["g-recaptcha-response"];
+
+    console.log(formValues);
+  });
+</script>

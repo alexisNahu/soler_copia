@@ -43,6 +43,24 @@ const { title } = Astro.props;
     />
 
     <title>{title}</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-02XFE3VBQT"
+    ></script>
+    <script>
+      declare global {
+        interface Window {
+          dataLayer: any[];
+        }
+      }
+      window.dataLayer = window.dataLayer || [];
+      function gtag(...args: any[]) {
+        window.dataLayer.push(args);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-02XFE3VBQT");
+    </script>
   </head>
   <body class="overflow-x-clip antialiased">
     <NavBar />
