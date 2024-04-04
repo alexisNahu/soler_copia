@@ -18,6 +18,7 @@ import { Image } from "astro:assets";
     </a>
 
     <ul
+      data-tranisiton="links"
       class="hidden lg:flex flex-row justify-evenly items-center gap-8 font-semibold xl:text-lg transition-colors"
     >
       <li><a href="/">INICIO</a></li>
@@ -69,7 +70,7 @@ import { Image } from "astro:assets";
     const navScreen = document.querySelector(
       ".nav-screen"
     ) as HTMLDivElement | null;
-    const links = document.querySelectorAll("nav a");
+    const links = document.querySelectorAll('[data-tranisiton="links"] li a');
 
     links.forEach((link) => {
       const anchor = link as HTMLAnchorElement;
@@ -78,7 +79,7 @@ import { Image } from "astro:assets";
         e.preventDefault();
         const href = anchor.href;
 
-        gsap.to('[data-animation="soler"]', {
+        gsap.to(anim, {
           opacity: 0,
           duration: 0.4,
           onComplete: () => {
@@ -179,7 +180,5 @@ import { Image } from "astro:assets";
         link.classList.remove("text-primarioOscuro");
       }
     });
-
-    gsap.to(".row", {});
   });
 </script>

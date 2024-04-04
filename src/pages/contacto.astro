@@ -129,6 +129,33 @@ import Layout from "../layouts/Layout.astro";
 
     delete formValues["g-recaptcha-response"];
 
-    console.log(formValues);
+    try {
+      const response = await fetch(
+        "https://www.admin.solerconsultoria.com.py/api/contacto",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formValues),
+        }
+      );
+
+      if (!response.ok) {
+        alertHTML?.insertAdjacentHTML(
+          "beforeend",
+          `<p class="text-red-400 mx-auto">Hubo un problema al enviar el formulario.</p>`
+        );
+      } else {
+        alertHTML?.insertAdjacentHTML(
+          "beforeend",
+          `<p class="text-green-400 mx-auto">¡Formulario enviado!</p>`
+        );
+        formulario.reset();
+      }
+    } catch (error) {
+      console.log(formValues);
+      console.error(`Error en la solicitud: ${error}`);
+    }
   });
 </script>
