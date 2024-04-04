@@ -70,12 +70,12 @@ const servicios = [
         <div class="mx-auto text-secundario max-w-7xl px-4 md:px-12">
           <p
             id="paragraph1"
-            class="font-bold text-xl md:text-2xl lg:text-3xl text-center mb-12"
+            class="font-bold text-xl md:text-2xl lg:text-3xl text-center mb-12 min-w-[270px]"
           >
           </p>
           <p
             id="paragraph2"
-            class="text-center text-xl sm:text-2xl lg:text-3xl font-normal leading-5"
+            class="text-center text-xl sm:text-2xl lg:text-3xl font-normal leading-5 min-w-[270px]"
           >
           </p>
         </div>
@@ -94,7 +94,7 @@ const servicios = [
           </hgroup>
           <div class="mx-auto">
             <div
-              class="bg-[#90A5BA] bg-opacity-90 flex flex-wrap justify-center max-lg:mx-auto lg:flex-row gap-2 md:gap-4 p-8"
+              class="bg-[#90A5BA] bg-opacity-90 min-w-[270px] flex flex-wrap justify-center max-lg:mx-auto lg:flex-row gap-2 md:gap-4 p-8"
             >
               {
                 garanitzamos.map((value, idx) => (
@@ -133,7 +133,7 @@ const servicios = [
           servicios.map((value, idx) => (
             <div
               data-servicio={`Servicio: ${idx}`}
-              class={`flex flex-col rounded-lg h-[420px] md:h-[480px] lg:h-[540px] text-white bg-doradoSoler w-44 md:w-56 lg:w-64 min-[1680px]:w-72`}
+              class={`flex flex-col rounded-lg rounded-tr-none h-[420px] md:h-[480px] lg:h-[540px] text-white bg-doradoSoler w-56 lg:w-64 min-[1680px]:w-72`}
             >
               <div class="basis-4/12 flex pt-12 text-center  text-sm md:text-base xl:text-xl justify-center p-3 font-bold">
                 {value.title}
@@ -162,15 +162,9 @@ const servicios = [
     <section class="relative h-[1250px] max-w-[1920px] m-auto -mt-48">
       <picture>
         <source media="(min-width:500px)" srcset="/index/NuestroEquipo.webp" />
-        <source
-          media="(min-width:0px)"
-          srcset="/index/NuestroEquipoMobile.webp"
-        />
 
-        <source media="(min-width:650px)" srcset="img_pink_flowers.jpg" />
-        <source media="(min-width:465px)" srcset="img_white_flower.jpg" />
         <Image
-          src={"/index/NuestroEquipo.webp"}
+          src={"/index/NuestroEquipoMobile.webp"}
           width={1920}
           height={1500}
           loading={"eager"}
@@ -179,7 +173,7 @@ const servicios = [
         />
       </picture>
       <div
-        class="pt-48 max-w-6xl px-18 mx-auto text-xl lg:text-3xl font-bold text-center text-white"
+        class="pt-48 max-w-6xl min-w-[270px] px-18 mx-auto text-lg md:text-xl lg:text-3xl font-bold text-center text-white"
       >
         <p>
           EN SOLER EAS, CONTAMOS CON UN EQUIPO DE PROFESIONALES ALTAMENTE
@@ -188,15 +182,15 @@ const servicios = [
         </p>
       </div>
       <div
-        class="grid place-items-center justify-items-end w-full h-full max-md:pb-24"
+        class="grid place-items-center justify-items-end w-full h-full pb-24"
       >
         <div
-          class="bg-secundario/80 px-6 py-12 sm:px-12 sm:py-16 lg:py-28 lg:px-32 text text-white backdrop-blur-sm max-w-5xl"
+          class="bg-secundario/80 px-4 py-8 sm:px-12 sm:py-16 lg:py-28 lg:px-32 text text-white backdrop-blur-sm max-w-5xl"
         >
-          <h1 class="mb-12 font-semibold text-2xl lg:text-4xl">
+          <h1 class="mb-6 md:mb-12 font-semibold text-2xl lg:text-4xl">
             Nuestro equipo multidisciplinario está compuesto por:
           </h1>
-          <ul class="flex flex-col gap-y-2 lg:text-lg">
+          <ul class="flex flex-col gap-y-2 text-sm md:text-base lg:text-lg">
             <li class="flex gap-x-2 font-semibold">
               <Image
                 src={"/index/check.svg"}

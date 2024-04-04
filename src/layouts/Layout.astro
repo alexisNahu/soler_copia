@@ -23,21 +23,21 @@ const { title } = Astro.props;
   </head>
   <body class="overflow-x-clip antialiased">
     <NavBar />
-    <div class="animate-fade">
+    <div style="opacity: 0;" data-animation="soler">
       <slot />
     </div>
     <Footer />
     <WhatsApp />
   </body>
+
+  <style is:global>
+    @font-face {
+      font-family: "helvetica";
+      src: url("../../public/fonts/HelveticaNeueRoman.otf") format("otf");
+    }
+
+    body {
+      font-family: "helvetica", sans-serif;
+    }
+  </style>
 </html>
-
-<style is:global>
-  @font-face {
-    font-family: "helvetica";
-    src: url("../../public/fonts/HelveticaNeueRoman.otf") format("otf");
-  }
-
-  body {
-    font-family: "Inter Variable", sans-serif;
-  }
-</style>
