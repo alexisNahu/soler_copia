@@ -29,14 +29,25 @@ import { Image } from "astro:assets";
     </ul>
 
     <div
-      class="sol lg:hidden cursor-pointer rounded-full grid place-items-center relative z-50"
+      id="nav"
+      class="lg:hidden cursor-pointer rounded-full grid place-items-center relative z-50"
     >
-      <Image src={"/sol.png"} width={60} height={60} alt="Logo de soler" />
+      <div class="w-10 h-6 relative">
+        <span id="line1" class="w-full h-1 bg-black absolute top-0 rounded-sm"
+        ></span>
+        <span
+          id="line2"
+          class="w-full h-1 bg-primarioOscuro absolute top-1/2 transform -translate-y-1/2 rounded-sm"
+        ></span>
+        <span
+          id="line3"
+          class="w-full h-1 bg-black absolute bottom-0 rounded-sm"></span>
+      </div>
     </div>
 
     <div
       style="opacity: 0"
-      class="nav-screen pointer-events-none lg:hidden h-screen grid place-items-center bg-white fixed inset-0"
+      class="nav-screen pointer-events-none lg:hidden h-screen grid place-items-center bg-white fixed inset-0 z-40"
     >
       <ul
         class="nav-items flex flex-col justify-evenly items-center gap-6 font-semibold text-lg"
@@ -61,11 +72,16 @@ import { Image } from "astro:assets";
   </nav>
 </header>
 
+<style></style>
+
 <script>
   import gsap from "gsap";
 
   document.addEventListener("DOMContentLoaded", () => {
-    const sol = document.querySelector(".sol") as HTMLDivElement | null;
+    const sol = document.querySelector("#nav") as HTMLDivElement | null;
+    const navLinks = document.querySelectorAll("nav ul li a");
+    const navBars = document.querySelectorAll("#nav div span");
+    const solNav = document.querySelectorAll("#nav span");
     const anim = document.querySelector('[data-animation="soler"]');
     const navScreen = document.querySelector(
       ".nav-screen"
@@ -104,12 +120,42 @@ import { Image } from "astro:assets";
 
     let isNavScreenVisible = false;
 
-    function RotarSol() {
-      gsap.to(sol, {
-        rotate: "+=360",
-        duration: 1,
-        ease: "circ.inOut",
-      });
+    function NavActive() {
+      if (isNavScreenVisible) {
+        gsap.to(navBars[0], {
+          top: "0",
+          rotate: "0",
+          duration: 0.5,
+          ease: "circ.inOut",
+        });
+        gsap.to(navBars[1], {
+          rotate: "0",
+          duration: 0.5,
+          ease: "circ.inOut",
+        });
+        gsap.to(navBars[2], {
+          opacity: 1,
+          duration: 0.5,
+          ease: "circ.inOut",
+        });
+      } else {
+        gsap.to(navBars[0], {
+          top: "50%",
+          rotate: "45deg",
+          duration: 0.5,
+          ease: "circ.inOut",
+        });
+        gsap.to(navBars[1], {
+          rotate: "-45deg",
+          duration: 0.5,
+          ease: "circ.inOut",
+        });
+        gsap.to(navBars[2], {
+          opacity: 0,
+          duration: 0.5,
+          ease: "circ.inOut",
+        });
+      }
 
       if (isNavScreenVisible) {
         document.body.style.overflow = "";
@@ -126,7 +172,7 @@ import { Image } from "astro:assets";
             pointerEvents: "none",
             y: 20,
             stagger: 0.1,
-            duration: 0.5,
+            duration: 0.4,
             ease: "circ.inOut",
             onComplete: () => {
               gsap.to(navScreen, {
@@ -157,8 +203,8 @@ import { Image } from "astro:assets";
                 opacity: 1,
                 pointerEvents: "auto",
                 y: 0,
-                stagger: 0.1,
-                duration: 0.5,
+                stagger: 0.2,
+                duration: 0.3,
                 ease: "circ.inOut",
               }
             );
@@ -169,9 +215,7 @@ import { Image } from "astro:assets";
       isNavScreenVisible = !isNavScreenVisible;
     }
 
-    sol?.addEventListener("click", RotarSol);
-
-    const navLinks = document.querySelectorAll("nav ul li a");
+    sol?.addEventListener("click", NavActive);
 
     navLinks.forEach((link) => {
       if (link.getAttribute("href") === path) {

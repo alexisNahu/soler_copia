@@ -66,11 +66,11 @@ const servicios = [
         loading={"eager"}
         class="mx-auto object-cover absolute inset-0 -z-10 h-full animate-fade -mt-32 [mask-image:_linear-gradient(black_80%,_transparent);]"
       />
-      <div class="flex flex-col h-full justify-between pt-24 pb-24">
+      <div class="flex flex-col h-full justify-between pt-12 sm:pt-24 pb-24">
         <div class="mx-auto text-secundario max-w-7xl px-4 md:px-12">
           <p
             id="paragraph1"
-            class="font-bold text-xl md:text-2xl lg:text-3xl text-center mb-12 min-w-[270px]"
+            class="font-bold text-xl md:text-2xl lg:text-3xl text-center leading-5 mb-12 min-w-[270px]"
           >
           </p>
           <p
@@ -267,7 +267,17 @@ const servicios = [
                 alt="check"
                 loading={"eager"}
               />
-              <span>ABOGADOS DESPACHANTES DE ADUANAS</span>
+              <span>ABOGADOS </span>
+            </li>
+            <li class="flex gap-x-2 font-semibold">
+              <Image
+                src={"/index/check.svg"}
+                width={23}
+                height={23}
+                alt="check"
+                loading={"eager"}
+              />
+              <span> DESPACHANTES DE ADUANAS</span>
             </li>
             <li class="flex gap-x-2 font-semibold">
               <Image

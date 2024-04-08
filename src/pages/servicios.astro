@@ -40,7 +40,7 @@ const servicios = [
       title2="SERVICIOS"
     />
     <section class="max-w-screen-2xl mx-auto w-11/12 py-24 relative">
-      <div class="grid gap-6 lg:gap-12 grid-cols-2 lg:grid-cols-3">
+      <div class="grid gap-6 lg:gap-14 grid-cols-2 lg:grid-cols-3">
         {
           servicios.map((value, idx) => {
             return (
@@ -48,7 +48,7 @@ const servicios = [
                 <h3 class="font-bold text-xl lg:text-3xl text-primarioOscuro mb-6">
                   {value.title}
                 </h3>
-                <p class="text-secundario text-lg font-medium mb-6 max-md:line-clamp-5">
+                <p class="text-secundario text-lg font-medium mb-6 max-md:line-clamp-5 lg:text-justify">
                   {value.text}
                 </p>
                 <button class="border-[1.5px] border-primarioOscuro rounded-lg rounded-tr-none px-5 py-3 text-primarioOscuro font-semibold hover:bg-primarioOscuro transition-colors hover:text-white">
@@ -86,6 +86,22 @@ const servicios = [
           <div
             class="py-6 sm:py-10 lg:py-16 px-4 sm:px-12 lg:px-20 bg-doradoSoler bg-opacity-70"
           >
+            <h2 class="font-bold text-2xl lg:text-3xl mb-3">
+              Entes Regulatorios
+            </h2>
+            <ul class="font-bold lg:text-lg flex flex-col">
+              <li>DINAVISA</li>
+              <li>INAN</li>
+              <li>SENAVE</li>
+              <li>SENACSA</li>
+              <li>SENAD</li>
+              <li>MADES</li>
+              <li>DNA</li>
+            </ul>
+          </div>
+          <div
+            class="py-6 sm:py-10 lg:py-16 px-4 sm:px-12 lg:px-20 bg-doradoSoler bg-opacity-70"
+          >
             <h2 class="font-bold text-2xl lg:text-3xl mb-3">Rubros</h2>
             <ul
               class="font-semibold lg:text-lg flex flex-col gap-y-1 sm:gap-y-3"
@@ -99,22 +115,6 @@ const servicios = [
               <li>Productos Veterinarios.</li>
               <li>Agroquímicos Fitosanitarios.</li>
               <li>Productos Químicos Controlados.</li>
-            </ul>
-          </div>
-          <div
-            class="py-6 sm:py-10 lg:pt-16 lg:mb-32 px-4 sm:px-12 lg:px-20 bg-doradoSoler bg-opacity-70"
-          >
-            <h2 class="font-bold text-2xl lg:text-3xl mb-3">
-              Entes Regulatorios
-            </h2>
-            <ul class="font-bold lg:text-lg flex flex-col">
-              <li>DINAVISA</li>
-              <li>INAN</li>
-              <li>SENAVE</li>
-              <li>SENACSA</li>
-              <li>SENAD</li>
-              <li>MADES</li>
-              <li>DNA</li>
             </ul>
           </div>
         </div>
