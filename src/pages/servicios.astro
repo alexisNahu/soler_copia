@@ -44,14 +44,14 @@ const servicios = [
         {
           servicios.map((value, idx) => {
             return (
-              <div data-key={`Servicio: ${idx}`}>
-                <h3 class="font-bold text-xl lg:text-3xl text-primarioOscuro mb-6">
+              <div class="flex flex-col" data-key={`Servicio: ${idx}`}>
+                <h3 class="font-bold text-xl lg:text-3xl text-primarioOscuro mb-6 text-center">
                   {value.title}
                 </h3>
                 <p class="text-secundario text-lg font-medium mb-6 max-md:line-clamp-5 lg:text-justify">
                   {value.text}
                 </p>
-                <button class="border-[1.5px] border-primarioOscuro rounded-lg rounded-tr-none px-5 py-3 text-primarioOscuro font-semibold hover:bg-primarioOscuro transition-colors hover:text-white">
+                <button class="w-[153px] mx-auto border-[1.5px] border-primarioOscuro rounded-lg rounded-tr-none px-5 py-3 text-primarioOscuro font-semibold hover:bg-primarioOscuro transition-colors hover:text-white">
                   <a
                     href="https://wa.me/595981117986"
                     target="_blank"
