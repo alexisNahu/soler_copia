@@ -12,14 +12,14 @@ import { Image } from "astro:assets";
         width={300}
         height={86.69}
         alt="Logo de soler E.A.S."
-        class="flex-1 h-auto [mask-image:_radial-gradient(black_60%,_transparent);]"
+        class="h-auto [mask-image:_radial-gradient(black_60%,_transparent);]"
         loading={"eager"}
       />
     </a>
 
     <ul
       data-tranisiton="links"
-      class="hidden lg:flex flex-row justify-evenly items-center gap-8 font-semibold xl:text-lg transition-colors"
+      class="hidden lg:flex flex-row justify-evenly items-center gap-8 font-semibold xl:text-lg transition-colors [&_>_:hover]:text-primario [&_>]:transition-all"
     >
       <li><a href="/">INICIO</a></li>
       <li><a href="/about">QUIÉNES SOMOS</a></li>
@@ -188,7 +188,7 @@ import { Image } from "astro:assets";
         document.body.style.overflow = "hidden";
         gsap.to(navScreen, {
           opacity: 1,
-          duration: 1,
+          duration: 0.5,
           ease: "circ.inOut",
           onComplete: () => {
             const navItems = document.querySelectorAll(".nav-items li");
@@ -203,7 +203,7 @@ import { Image } from "astro:assets";
                 opacity: 1,
                 pointerEvents: "auto",
                 y: 0,
-                stagger: 0.2,
+                stagger: 0.1,
                 duration: 0.3,
                 ease: "circ.inOut",
               }
