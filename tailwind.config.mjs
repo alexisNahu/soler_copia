@@ -3,6 +3,9 @@ export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
     extend: {
+      backgroundImage: {
+        hero: "url('/index/solerHero.webp')",
+      },
       colors: {
         primario: "#e8d5a9",
         primarioClaro: "#d4cdb3",

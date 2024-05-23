@@ -80,5 +80,19 @@ const { title } = Astro.props;
     body {
       font-family: "helvetica", sans-serif;
     }
+
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: #5e7482;
+      border-radius: 10px;
+      cursor: grab;
+    }
+
+    ::-webkit-scrollbar-thumb:active {
+      cursor: grabbing;
+    }
   </style>
 </html>
