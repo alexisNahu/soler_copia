@@ -1,0 +1,47 @@
+---
+import { Image } from "astro:assets";
+import noticias_bg from '../../../public/noticias/noticias_bg.png'
+import Card from "../../features/noticias/components/card.astro";
+import NoticiasLayout from "../../layouts/NoticiasLayout.astro";
+import {noticias} from "../../constans";
+
+const categorias = ["ASESORÍA", "ECONOMÍA", "LIDERAZGO", "SALUD"];
+---
+
+<NoticiasLayout>
+    <div class="flex flex-col lg:flex-row gap-12">
+
+        <div class="flex-1">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">
+                {noticias.map((item) => (
+                        <Card item={item} desde="noticias" />
+                ))}
+            </div>
+
+            <div class="flex justify-center items-center gap-2 mt-16 text-sm font-bold text-slate-400">
+                <button class="hover:text-slate-600">&lt; ANTERIOR</button>
+                <button class="w-8 h-8 flex items-center justify-center bg-[#d4b56b] text-white rounded-sm">1</button>
+                <button class="w-8 h-8 flex items-center justify-center bg-slate-200 hover:bg-slate-300 rounded-sm">2</button>
+                <button class="w-8 h-8 flex items-center justify-center bg-slate-200 hover:bg-slate-300 rounded-sm">3</button>
+                <button class="hover:text-slate-600">ÚLTIMO &gt;</button>
+            </div>
+        </div>
+
+        <aside class="w-full lg:w-64">
+            <div class="bg-[#d4b56b] text-white px-4 py-2 font-bold uppercase tracking-widest text-sm mb-4">
+                Categorías
+            </div>
+
+            <ul class="flex flex-col border-b border-slate-100">
+                {categorias.map(cat => (
+                        <li class="border-t border-slate-100 py-3 text-xs font-bold text-slate-500 hover:text-[#d4b56b] cursor-pointer transition-colors uppercase tracking-tight">
+                            {cat}
+                        </li>
+                ))}
+            </ul>
+        </aside>
+
+    </div>
+</NoticiasLayout>
+
+

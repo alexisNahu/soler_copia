@@ -1,0 +1,43 @@
+---
+import { Image } from "astro:assets";
+import Card from "./components/card.astro";
+import {noticias} from "../../constans";
+
+import noticias_bg_opaco from "../../../public/noticias/noticias_bg_opaco.png";
+
+---
+
+<section class="relative py-20 px-6 min-h-[800px] flex items-center mt-80 overflow-hidden">
+    <div class="absolute inset-0 -z-20">
+        <Image
+                src={noticias_bg_opaco}
+                alt="Fondo decorativo sección noticias"
+                class="w-full h-full object-cover"
+        />
+        <div class="absolute inset-0 bg-white/10"></div>
+    </div>
+
+    <div class="absolute inset-0 flex flex-col items-center justify-start pt-15 -z-10 pointer-events-none select-none">
+        <span class="text-[12rem] font-bold text-slate-100 leading-none tracking-widest uppercase">
+            NOTICIAS
+        </span>
+    </div>
+
+    <div class="max-w-5xl mx-auto w-full relative pt-9 z-10">
+        <h2 class="text-center text-4xl font-semibold text-slate-700 mb-16">
+            Noticias
+        </h2>
+
+        <div class="flex flex-col gap-12">
+            {noticias.map((item) => (
+                    <Card item={item} desde="index"/>
+            ))}
+        </div>
+
+        <div class="mt-16 flex justify-end">
+            <a href="/noticias" class="bg-[#d4b56b] hover:bg-[#c4a55b] text-white px-8 py-3 rounded-md text-sm font-bold transition-all shadow-lg active:scale-95 uppercase tracking-wider">
+                Más Noticias
+            </a>
+        </div>
+    </div>
+</section>

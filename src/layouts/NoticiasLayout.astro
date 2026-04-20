@@ -1,0 +1,26 @@
+---
+import {Image} from "astro:assets";
+import noticias_bg from "../../public/noticias/noticias_bg.png"
+import Layout from "./Layout.astro";
+---
+
+<Layout title="Noticias">
+    <section class="relative">
+        <div class="relative h-64 w-full overflow-hidden flex items-center">
+            <Image
+                    src={noticias_bg}
+                    alt="Banner Noticias"
+                    class="absolute inset-0 -z-20 h-full w-full object-cover"
+            />
+            <div class="max-w-7xl mx-auto w-full px-6 relative">
+                <span class="absolute left-10 top-0 text-8xl font-bold text-slate-100/30 pointer-events-none uppercase">Noticias</span>
+                <h1 class="text-4xl font-bold text-slate-600 relative z-10">Noticias</h1>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 py-16">
+            <slot />
+        </div>
+    </section>
+</Layout>
+
