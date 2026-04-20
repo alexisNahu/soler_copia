@@ -3,6 +3,7 @@ import NavBar from "../components/navBar/NavBar.astro";
 import Footer from "../components/footer/Footer.astro";
 import WhatsApp from "../components/whatsApp.astro";
 import "@fontsource-variable/inter";
+import '../styles/global.css'
 
 interface Props {
   title: string;
@@ -71,28 +72,4 @@ const { title } = Astro.props;
     <WhatsApp />
   </body>
 
-  <style is:global>
-    @font-face {
-      font-family: "helvetica";
-      src: url("../../public/fonts/HelveticaNeueRoman.otf") format("otf");
-    }
-
-    body {
-      font-family: "helvetica", sans-serif;
-    }
-
-    ::-webkit-scrollbar {
-      width: 10px;
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background-color: #5e7482;
-      border-radius: 10px;
-      cursor: grab;
-    }
-
-    ::-webkit-scrollbar-thumb:active {
-      cursor: grabbing;
-    }
-  </style>
 </html>
