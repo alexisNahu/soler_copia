@@ -45,3 +45,5 @@ export const noticias = [
         contenido: LOREM_IPSUM
     }
 ];
+
+

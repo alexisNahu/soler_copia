@@ -1,0 +1,56 @@
+---
+import { Image } from "astro:assets";
+
+// Definimos la estructura para evitar el error de unión de objetos
+interface GarantiaItem {
+    img: string;
+    title: string;
+}
+
+interface Props {
+    items?: GarantiaItem[];
+}
+
+const {
+    items = [
+        { img: "/index/garantizamos1.svg", title: "ASESORAMIENTO EXPERTO" },
+        { img: "/index/garantizamos2.svg", title: "SOLUCIONES PERSONALIZADAS" },
+        { img: "/index/garantizamos3.svg", title: "ADAPTADAS A NECESIDADES ESPECIFÍCAS" },
+        { img: "/index/garantizamos4.svg", title: "GESTIÓN EFICIENTE" },
+        { img: "/index/garantizamos5.svg", title: "PROCESOS SEGUROS" },
+        { img: "/index/garantizamos6.svg", title: "REQUERIMIENTOS VIGENTES" },
+    ]
+} = Astro.props;
+---
+
+<div class="w-full -mt-12 relative z-20">
+    <hgroup class="relative py-16">
+        <h1 class="text-white text-center text-3xl lg:text-5xl relative z-10 max-lg:[text-shadow:_0_1px_0_rgb(0_0_0_/_40%)]">
+            COMO EMPRESA GARANTIZAMOS...
+        </h1>
+        <h1 class="text-secundario text-3xl lg:text-6xl font-bold xl:text-9xl pointer-events-none select-none absolute inset-0 flex items-center justify-center opacity-20 text-center">
+            GARANTIZAMOS
+        </h1>
+    </hgroup>
+
+    <div class="bg-[#90A5BA]/50 min-w-[270px] flex flex-wrap justify-center gap-2 md:gap-4 p-8 backdrop-blur-sm">
+        {
+            items.map((value: GarantiaItem, idx: number) => (
+                    <div
+                            data-garatizamos={`Garantia ${idx}`}
+                            class="flex flex-col text-white flex-1 items-center text-center text-xs sm:text-base lg:text-lg md:font-bold min-w-[140px]"
+                    >
+                        <img
+                                src={value.img}
+                                alt={value.title}
+                                width="110"
+                                height="110"
+                                class="mx-auto aspect-square mb-2 max-sm:w-[60px]"
+                                loading="lazy"
+                        />
+                        <span class="max-w-[180px] text-balance">{value.title}</span>
+                    </div>
+            ))
+        }
+    </div>
+</div>

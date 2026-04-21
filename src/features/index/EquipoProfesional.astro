@@ -1,0 +1,62 @@
+---
+import { Image } from "astro:assets";
+
+const disciplinas = [
+    "INGENIEROS QUÍMICOS",
+    "QUÍMICOS FARMACÉUTICOS",
+    "TECNÓLOGOS DE ALIMENTOS",
+    "VETERINARIOS",
+    "INGENIEROS AGRÓNOMOS Y AMBIENTALES",
+    "INGENIEROS CIVILES",
+    "ARQUITECTOS",
+    "ABOGADOS",
+    "DESPACHANTES DE ADUANAS",
+    "PROFESIONALES DE COMERCIO EXTERIOR",
+];
+---
+
+<section class="relative max-w-[1920px] m-auto -mt-48">
+    <picture>
+        <source media="(min-width:500px)" srcset="/index/NuestroEquipo.webp" />
+        <Image
+                src={"/index/NuestroEquipoMobile.webp"}
+                width={1920}
+                height={1500}
+                loading={"eager"}
+                alt="Nuestro equipo"
+                class="absolute inset-0 -z-10 h-[1450px] w-full object-cover object-left [mask-image:linear-gradient(to_bottom,transparent,black_15%)]"
+        />
+    </picture>
+
+    <div class="pt-48 max-w-6xl min-w-[270px] mx-auto text-lg md:text-xl lg:text-3xl font-bold text-center text-white px-4">
+        <p>
+            EN SOLER EAS, CONTAMOS CON UN EQUIPO DE PROFESIONALES ALTAMENTE
+            CALIFICADOS Y COMPROMETIDOS QUE ABARCAN UNA AMPLIA GAMA DE
+            DISCIPLINAS.
+        </p>
+    </div>
+
+    <div class="grid min-h-[1450px] items-center justify-items-end w-full px-6 lg:px-32 pb-36">
+        <div class="bg-secundario/80 px-4 py-8 sm:px-12 sm:py-16 lg:py-28 lg:px-32 text text-white backdrop-blur-sm max-w-5xl">
+            <h1 class="mb-6 md:mb-12 font-semibold text-2xl lg:text-4xl">
+                Nuestro equipo multidisciplinario está compuesto por:
+            </h1>
+
+            <ul class="flex flex-col gap-y-3 text-sm md:text-base lg:text-lg">
+                {disciplinas.map((disciplina) => (
+                        <li class="flex gap-x-3 font-semibold items-center">
+                            <Image
+                                    src={"/index/check.svg"}
+                                    width={23}
+                                    height={23}
+                                    alt="check"
+                                    loading={"eager"}
+                                    class="shrink-0"
+                            />
+                            <span>{disciplina}</span>
+                        </li>
+                ))}
+            </ul>
+        </div>
+    </div>
+</section>

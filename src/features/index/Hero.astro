@@ -1,0 +1,26 @@
+---
+import Garantizamos from "./Garantizamos.astro";
+import {Image} from "astro:assets";
+import arriba from '../../../public/index/arriba.png'
+---
+<section class="relative h-[1200px] lg:h-[1520px] w-full max-w-[1920px] mx-auto">
+    <Image
+            src={arriba}
+            width={1920}
+            height={1520}
+            alt="Hero index solar E.A.S. imagen descriptiva empresarial"
+            loading="eager"
+            class="mx-auto object-cover absolute inset-0 -z-10 h-full blur-[0.4px] contrast-[1.05] -mt-24 [mask-image:linear-gradient(black_80%,transparent)]"
+    />
+
+    <div class="flex flex-col h-full justify-between pt-6 sm:pt-24 pb-56">
+        {/* Textos Animados */}
+        <div class="mx-auto text-secundario max-w-7xl px-4 md:px-12">
+            <p id="paragraph1" class="font-bold text-xl md:text-2xl lg:text-3xl text-center mb-12 min-w-[270px]"></p>
+            <p id="paragraph2" class="text-center text-xl sm:text-2xl lg:text-3xl font-normal leading-loose min-w-[270px]"></p>
+        </div>
+
+        {/* Bloque Garantizamos */}
+        <Garantizamos />
+    </div>
+</section>

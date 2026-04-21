@@ -1,82 +1,96 @@
 ---
-export const prerender = true
+import { Image } from 'astro:assets'
+import { NewsServices } from "../../features/noticias/services";
 import NoticiasLayout from "../../layouts/NoticiasLayout.astro";
-import {noticias} from "../../constans";
-import {Image} from "astro:assets";
+import type { GetStaticPaths } from "astro";
+import type { News } from "../../features/noticias/models";
 
-export async function getStaticPaths() {
-  return noticias.map((noticia) => ({
-    params: { slug: noticia.slug },
-    props: { noticia },
-  }));
-}
+export const prerender = true;
 
-const { noticia } = Astro.props;
+export const getStaticPaths = (async () => {
+  const response = await NewsServices.get();
+  const listaBasica = response.data;
 
-const otrasNoticias = [
-  "Asesoría Integral en Regulaciones y Normativas para empresas del Sector Químico",
-  "Paraguay está avanzando hacia una economía cada vez más industrial"
-];
+  const noticiasCompletas = await Promise.all(
+      listaBasica.map(async (n: News) => {
+        const detalle = await NewsServices.getByIdOrSlug(n.slug);
+        return detalle.data;
+      })
+  );
+
+  return noticiasCompletas.map((noticia: News) => {
+    const recomendadas = noticiasCompletas
+        .filter((n) => n.slug !== noticia.slug)
+        .slice(0, 1);
+
+    return {
+      params: { slug: noticia.slug },
+      props: { noticia, recomendadas },
+    };
+  });
+}) satisfies GetStaticPaths;
+
+const { noticia, recomendadas } = Astro.props;
 ---
 
-<NoticiasLayout>
-  <a href="/noticias" class="hover:text-[#d4b56b] transition-colors flex items-center gap-1 mb-6 tracking-tight">
-    <span class="text-2xl mx-1">‹</span> Volver a todas las noticias
+<NoticiasLayout title={noticia.title}>
+  <a href="/noticias" class="hover:text-doradoSoler transition-colors flex items-center gap-1 mb-6 tracking-tight group">
+    <span class="text-2xl mx-1 transition-transform group-hover:-translate-x-1">‹</span>
+    Volver a todas las noticias
   </a>
 
   <div class="flex flex-col lg:flex-row gap-12">
     <article class="flex-1">
-      <span>{noticia.fecha}</span>
+      <span class="text-slate-400 text-sm font-medium">{noticia.published_at}</span>
       <h2 class="text-3xl font-bold text-slate-600 mt-2 mb-4 leading-tight">
-        {noticia.titulo}
+        {noticia.title}
       </h2>
 
       <div class="flex gap-2 mb-8">
-        {noticia.tags.map(tag => (
-            <span class="bg-[#90A5BA] text-white text-[9px] px-2.5 py-1 rounded-sm font-bold uppercase tracking-wider">
-                        {tag}
-                    </span>
-        ))}
+        <span class="bg-[#90A5BA] text-white text-[10px] px-2.5 py-1 rounded-sm font-bold uppercase tracking-wider">
+          {noticia.category.name}
+        </span>
       </div>
 
-      <div class="rounded-2xl overflow-hidden shadow-sm mb-8">
+      <div class="rounded-2xl overflow-hidden shadow-sm mb-8 bg-slate-100">
         <Image
-          src={noticia.img}
-          width={800}
-          height={200}
-          alt={noticia.titulo}
-          class="w-full h-auto object-cover"
+            src={noticia.featured_image}
+            width={800}
+            height={450}
+            alt={noticia.title}
+            class="w-full h-auto max-h-[450px] object-cover"
         />
       </div>
 
-      <div class="space-y-6 text-slate-500 text-sm leading-relaxed text-justify" set:html={noticia.contenido}>
-      </div>
+      {/* RENDERIZADO DE CONTENIDO HTML */}
+      <div
+          class="space-y-6 text-slate-500 text-base leading-relaxed text-justify prose prose-slate max-w-none"
+          set:html={noticia.content}
+      />
     </article>
 
     <aside class="w-full lg:w-80 shrink-0">
-      <div class="bg-doradoSoler text-white px-6 py-3 font-bold uppercase tracking-[0.2em] text-lg mb-8 rounded-lg rounded-tr-none">
+      <div class="bg-doradoSoler text-white px-6 py-3 font-bold uppercase tracking-[0.2em] text-lg mb-8 rounded-lg rounded-tr-none shadow-sm">
         MÁS NOTICIAS
       </div>
 
       <div class="flex flex-col">
-        {otrasNoticias.map((titulo) => (
-            <div class="group cursor-pointer border-b border-doradoSoler py-5 transition-all">
+        {recomendadas.map((item) => (
+            <a href={`/noticias/${item.slug}`} class="group cursor-pointer border-b border-slate-100 py-5 transition-all block">
               <div class="flex gap-4 items-start">
-                {/* La pelotita azul */}
-                <span class="w-2.5 h-2.5 bg-secundario mt-1.5 shrink-0 rounded-sm"></span>
-
+                <span class="w-2.5 h-2.5 bg-secundario mt-1.5 shrink-0 rounded-sm opacity-60 group-hover:opacity-100 group-hover:bg-doradoSoler transition-all"></span>
                 <p class="text-slate-500 group-hover:text-doradoSoler transition-colors leading-snug font-medium text-[15px]">
-                  {titulo}
+                  {item.title}
                 </p>
               </div>
-            </div>
+            </a>
         ))}
       </div>
 
       <a href="/noticias"
-         class="flex items-center justify-center gap-2 mt-10 bg-secundario/40 hover:bg-secundario/60 text-white py-2 rounded-md transition-all uppercase tracking-widest group">
-        <span class="text-lg leading-none">›</span>
+         class="flex items-center justify-center gap-2 mt-10 bg-secundario/10 hover:bg-secundario/20 text-secundario border border-secundario/20 py-3 rounded-md transition-all uppercase text-xs font-bold tracking-widest group">
         Ver todas las noticias
+        <span class="text-lg leading-none transition-transform group-hover:translate-x-1">›</span>
       </a>
     </aside>
   </div>

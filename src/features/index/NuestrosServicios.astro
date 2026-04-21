@@ -1,0 +1,86 @@
+---
+import { Image } from "astro:assets";
+
+interface Servicio {
+    img: string;
+    title: string;
+}
+
+interface Props {
+    servicios?: Servicio[];
+}
+
+const {
+    servicios = [
+        {
+            img: "/index/servicio1.webp",
+            title: "CONSULTORÍA ESPECIALIZADA",
+        },
+        {
+            img: "/index/servicio2.webp",
+            title: "GESTIÓN INTEGRAL DE REGULACIONES SANITARIAS",
+        },
+        {
+            img: "/index/servicio3.webp",
+            title: "ASESORAMIENTO REGULATORIO",
+        },
+        {
+            img: "/index/servicio4.webp",
+            title: "IMPLEMENTACIÓN DE BUENAS PRÁCTICAS Y CONTROL DE CALIDAD",
+        },
+        {
+            img: "/index/servicio5.webp",
+            title: "ASISTENCIA TÉCNICA, LEGAL Y FINANCIERA",
+        },
+    ],
+} = Astro.props;
+---
+
+<section class="pb-24 max-w-screen-2xl w-11/12 mx-auto relative z-10">
+    <h1
+            class="text-primarioOscuro text-center text-3xl lg:text-5xl font-semibold mb-12"
+    >
+        NUESTROS SERVICIOS
+    </h1>
+
+    <div class="flex justify-center flex-wrap gap-6">
+        {
+            servicios.map((value, idx) => (
+                    <div
+                            data-servicio={`Servicio: ${idx}`}
+                            class="flex flex-col h-[420px] md:h-[480px] lg:h-[540px] text-white bg-doradoSoler w-56 lg:w-64 min-[1680px]:w-72 shadow-lg transition-transform duration-300 hover:-translate-y-2"
+                    >
+                        {/* Título del servicio */}
+                        <div class="basis-4/12 flex pt-12 text-center text-sm md:text-base xl:text-xl justify-center p-5 font-bold leading-tight">
+                            {value.title}
+                        </div>
+
+                        {/* Imagen del servicio */}
+                        <div class="overflow-hidden">
+                            <img
+                                    src={value.img}
+                                    alt={value.title}
+                                    width="600"
+                                    height="400"
+                                    class="w-full h-auto object-cover"
+                                    loading="lazy"
+                            />
+                        </div>
+
+                        {/* Botón de acción */}
+                        <div class="p-4 flex items-center justify-center flex-1">
+                            <a
+                                    role="button"
+                                    href="https://wa.me/595981115623"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="px-2 sm:px-4 md:px-6 py-3 text-xs md:text-sm lg:text-base border-2 rounded-md rounded-tr-none border-white bg-transparent hover:bg-white hover:text-doradoSoler transition-all duration-300 uppercase font-semibold"
+                            >
+                                Me interesa
+                            </a>
+                        </div>
+                    </div>
+            ))
+        }
+    </div>
+</section>

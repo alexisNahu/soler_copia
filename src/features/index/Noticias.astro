@@ -1,9 +1,14 @@
+
 ---
+import {NewsServices} from "../noticias/services";
+import type {News} from "../noticias/models";
 import { Image } from "astro:assets";
-import Card from "./components/card.astro";
-import {noticias} from "../../constans";
+import Card from "../noticias/components/card.astro";
 
 import noticias_bg_opaco from "../../../public/noticias/noticias_bg_opaco.png";
+
+const response = await NewsServices.get();
+const noticias: News[] = response.data;
 
 ---
 
@@ -30,7 +35,7 @@ import noticias_bg_opaco from "../../../public/noticias/noticias_bg_opaco.png";
 
         <div class="flex flex-col gap-12">
             {noticias.map((item) => (
-                    <Card item={item} desde="index"/>
+                    <Card item={item} href=`/noticias/${item.slug}` desde="index"/>
             ))}
         </div>
 
