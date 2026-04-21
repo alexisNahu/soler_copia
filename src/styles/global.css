@@ -1,29 +1,36 @@
+/* Importación oficial de Tailwind 4 */
+@import "tailwindcss";
 
+/* Definición de fuentes locales */
 @font-face {
     font-family: 'Open Sans';
-    src: url('../../public/fonts/Open_Sans/OpenSans-VariableFont_wdth,wght.ttf') format('truetype');
+    /* Nota: En Astro/Vite, las fuentes en public se referencian desde la raíz / */
+    src: url('/public/fonts/Open_Sans/OpenSans-VariableFont_wdth,wght.ttf') format('truetype');
     font-weight: 300 800;
     font-style: normal;
+    font-display: swap;
 }
 
-/* Estilo Itálico */
 @font-face {
     font-family: 'Open Sans';
-    src: url('../../public/fonts/Open_Sans/OpenSans-Italic-VariableFont_wdth,wght.ttf') format('truetype');
+    src: url('/public/fonts/Open_Sans/OpenSans-Italic-VariableFont_wdth,wght.ttf') format('truetype');
     font-weight: 300 800;
     font-style: italic;
+    font-display: swap;
 }
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@theme {
+    --font-sans: 'Open Sans', 'Inter Variable', ui-sans-serif, system-ui;
+
+    /* Variables para el scrollbar si quieres usarlas con Tailwind */
+    --color-slate-custom: #5e7482;
+}
 
 @layer base {
     body {
         @apply font-sans;
     }
 }
-
 
 ::-webkit-scrollbar {
     width: 10px;
