@@ -20,7 +20,7 @@ export const noticias = [
     {
         slug: 'la-salud-tambien-se-construye',
         fecha: "14/04/2026",
-        tags: ["ECONOMÍA", "LIDERAZGO"],
+        tags: ["SALUD", "IPS"],
         titulo: "La salud también se construye desde lo que no se ve",
         img: "/noticias/noticia1.png",
         href: '/noticias/la-salud-tambien-se-construye',
@@ -38,7 +38,7 @@ export const noticias = [
     {
         slug: 'paraguay-avanzando-economia-industrial',
         fecha: "14/04/2026",
-        tags: ["ECONOMÍA", "LIDERAZGO"],
+        tags: ["ECONOMÍA"],
         titulo: "Paraguay está avanzando hacia una economía cada vez más industrial",
         img: "/noticias/noticia3.png",
         href: "/noticias/paraguay-avanzando-economia-industrial",

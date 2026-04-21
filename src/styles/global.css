@@ -1,11 +1,9 @@
-/* Importación oficial de Tailwind 4 */
-@import "tailwindcss";
+@import 'tailwindcss';
 
-/* Definición de fuentes locales */
+/* 1. FUENTES: Usamos rutas relativas para que Vite las procese correctamente desde src/styles */
 @font-face {
     font-family: 'Open Sans';
-    /* Nota: En Astro/Vite, las fuentes en public se referencian desde la raíz / */
-    src: url('/public/fonts/Open_Sans/OpenSans-VariableFont_wdth,wght.ttf') format('truetype');
+    src: url('../../public/fonts/Open_Sans/OpenSans-VariableFont_wdth,wght.ttf') format('truetype');
     font-weight: 300 800;
     font-style: normal;
     font-display: swap;
@@ -13,33 +11,42 @@
 
 @font-face {
     font-family: 'Open Sans';
-    src: url('/public/fonts/Open_Sans/OpenSans-Italic-VariableFont_wdth,wght.ttf') format('truetype');
+    src: url('../../public/fonts/Open_Sans/OpenSans-Italic-VariableFont_wdth,wght.ttf') format('truetype');
     font-weight: 300 800;
     font-style: italic;
     font-display: swap;
 }
-@theme {
-    --font-sans: 'Open Sans', 'Inter Variable', ui-sans-serif, system-ui;
 
-    /* Variables para el scrollbar si quieres usarlas con Tailwind */
-    --color-slate-custom: #5e7482;
+@theme {
+    /* 2. TIPOGRAFÍA */
+    --font-sans: 'Open Sans', ui-sans-serif, system-ui, sans-serif;
+
+    /* 3. COLORES EXACTOS (Recuperados de tu tailwind.config.js) */
+    --color-primario: #e8d5a9;
+    --color-primarioClaro: #d4cdb3;
+    --color-primarioOscuro: #d0ae55;
+    --color-secundario: #5e7482;
+    --color-doradoSoler: #d2bf7a;
 }
+
 @layer base {
     body {
-        @apply font-sans;
+        /* Aplicamos Open Sans y el color secundario como base */
+        @apply font-sans antialiased text-secundario;
+        background-color: white;
     }
 }
 
+/* 4. SCROLLBAR */
 ::-webkit-scrollbar {
     width: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: #5e7482;
+    background-color: #5e7482; /* Usas el color secundario */
     border-radius: 10px;
-    cursor: grab;
 }
 
 ::-webkit-scrollbar-thumb:active {
-    cursor: grabbing;
+    background-color: #d0ae55; /* Un toque de primario oscuro al presionar */
 }
