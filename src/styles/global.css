@@ -18,14 +18,12 @@
     font-style: italic;
     font-display: swap;
 }
-
 @theme {
     --font-sans: 'Open Sans', 'Inter Variable', ui-sans-serif, system-ui;
 
     /* Variables para el scrollbar si quieres usarlas con Tailwind */
     --color-slate-custom: #5e7482;
 }
-
 @layer base {
     body {
         @apply font-sans;
